@@ -5,6 +5,7 @@ export const lightTheme = {
   text: '#363537',
   toggleBorder: '#FFF',
   background: '#363537',
+  outline: '#363537',
 }
 
 export const darkTheme = {
@@ -12,9 +13,14 @@ export const darkTheme = {
   text: '#FAFAFA',
   toggleBorder: '#6B8096',
   background: '#999',
+  outline: '#FAFAFA'
 }
 
 export const GlobalStyles = createGlobalStyle`
+  :root {
+    --outline: ${({ theme }) => theme.outline};
+    --background: ${({ theme }) => theme.body};
+  }
   body {
     background: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.text};

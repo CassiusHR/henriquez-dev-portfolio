@@ -16,7 +16,6 @@ export default class MyDocument extends Document {
     return (
       <html>
         <Head>
-          <title>Carlos Henriquez</title>
           {this.props.styleTags}
           <link rel="preconnect" href="https://fonts.gstatic.com"/>
           <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;400;700&display=swap" rel="stylesheet"/>
