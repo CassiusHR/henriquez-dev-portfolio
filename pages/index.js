@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import HeaderSection from '../components/common/HeaderSection'
+import IndexHeader from '../components/page-components/IndexHeader'
 import { motion } from 'framer-motion'
 
 export default function Home() {
@@ -9,7 +9,7 @@ export default function Home() {
         <title>Carlos Henriquez - Home</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <HeaderSection/>
+      <IndexHeader/>
     </motion.div>
   )
 }

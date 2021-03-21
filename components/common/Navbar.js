@@ -15,6 +15,7 @@ const NavBar = styled.nav`
     justify-content:center;
     align-items:center;
     list-style-type:none;
+    padding:0px;
     li{
       margin:0 10px;
     }
