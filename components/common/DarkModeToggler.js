@@ -14,14 +14,14 @@ const DarkModeContainer = styled.div`
   width:80px;
   position:absolute;
   right:5px;
+  
   p{
-    margin-right:5px;
     font-size:12px;
   }
 `
 
 const SwitchContainer = styled.div`
-transform:scale(0.5);
+transform:scale(0.5)translateX(9px);
     label {
       cursor: pointer;
       padding: 1rem;
@@ -188,7 +188,7 @@ const DarkModeToggler = ({ theme, switchTheme }) => {
   return (
     <DarkModeContainer>
       <AnimatePresence exitBeforeEnter>
-      {theme === 'light' ? <motion.p initial={{opacity:0,y:-5}} animate={{opacity:1,y:0}} exit={{opacity:0,y:5}}  key='light-text'>Light</motion.p> : <motion.p initial={{opacity:0,y:-5}} animate={{opacity:1,y:0}} exit={{opacity:0,y:5}} key='dark-text'>Dark</motion.p>}
+      {theme === 'light' ? <motion.p initial={{opacity:0,y:-5}} animate={{opacity:0.6,y:0}} exit={{opacity:0,y:5}}  key='light-text'>Light</motion.p> : <motion.p initial={{opacity:0,y:-5}} animate={{opacity:0.6,y:0}} exit={{opacity:0,y:5}} key='dark-text'>Dark</motion.p>}
       </AnimatePresence>
       <SwitchContainer>
         <label>

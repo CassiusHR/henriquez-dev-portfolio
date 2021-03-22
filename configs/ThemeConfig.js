@@ -6,6 +6,7 @@ export const lightTheme = {
   toggleBorder: '#FFF',
   background: '#363537',
   themeButtonOutline: 'rgba(53,53,53,0.1)',
+  navSelected:'#ececec',
   
 }
 
@@ -14,13 +15,15 @@ export const darkTheme = {
   text: '#FAFAFA',
   toggleBorder: '#6B8096',
   background: '#999',
-  themeButtonOutline: 'rgba(250,250,250,0.1)'
+  themeButtonOutline: 'rgba(250,250,250,0.1)',
+  navSelected:'#302f30',
 }
 
 export const GlobalStyles = createGlobalStyle`
   :root {
     --ThemeButtonOutline: ${({ theme }) => theme.themeButtonOutline};
     --background: ${({ theme }) => theme.body};
+    --navSelected: ${({ theme }) => theme.navSelected};
     --bg-planet-bright: #F2C94C;
     --bg-planet-shadow: #828894;
     --bg-planet-lightshadow: #D7D7D820;
