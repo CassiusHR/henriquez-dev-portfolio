@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Link from 'next/link'
+import DarkModeToggler from './DarkModeToggler'
 
 const NavBar = styled.nav`
   display:flex;
@@ -9,6 +10,7 @@ const NavBar = styled.nav`
   align-items:center;
   width:100%;
   height:60px;
+  position:relative;
   ul{
     display:flex;
     flex-direction:row;
@@ -18,11 +20,13 @@ const NavBar = styled.nav`
     padding:0px;
     li{
       margin:0 10px;
+      font-size:14px;
+      letter-spacing:2px;
     }
   }
 `
 
-const Navbar = () => {
+const Navbar = ({ theme, switchTheme }) => {
   return (
     <NavBar>
       <ul>
@@ -37,6 +41,7 @@ const Navbar = () => {
           </Link>
         </li>
       </ul>
+      <DarkModeToggler switchTheme={switchTheme} theme={theme}/>
     </NavBar>
   )
 }

@@ -5,7 +5,8 @@ export const lightTheme = {
   text: '#363537',
   toggleBorder: '#FFF',
   background: '#363537',
-  outline: '#363537',
+  themeButtonOutline: 'rgba(53,53,53,0.1)',
+  
 }
 
 export const darkTheme = {
@@ -13,13 +14,17 @@ export const darkTheme = {
   text: '#FAFAFA',
   toggleBorder: '#6B8096',
   background: '#999',
-  outline: '#FAFAFA'
+  themeButtonOutline: 'rgba(250,250,250,0.1)'
 }
 
 export const GlobalStyles = createGlobalStyle`
   :root {
-    --outline: ${({ theme }) => theme.outline};
+    --ThemeButtonOutline: ${({ theme }) => theme.themeButtonOutline};
     --background: ${({ theme }) => theme.body};
+    --bg-planet-bright: #F2C94C;
+    --bg-planet-shadow: #828894;
+    --bg-planet-lightshadow: #D7D7D820;
+    --dot-size: 0.25rem;
   }
   body {
     background: ${({ theme }) => theme.body};

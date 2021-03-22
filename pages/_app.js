@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps, router }) {
   return (
     <ThemeProvider theme={theme == 'light' ? lightTheme : darkTheme}>
       <GlobalStyles/>
-      <Layout switchTheme={toggleTheme}>
+      <Layout switchTheme={toggleTheme} theme={theme}>
         <AnimatePresence exitBeforeEnter>
           <Component {...pageProps} key={router.route} />
         </AnimatePresence>

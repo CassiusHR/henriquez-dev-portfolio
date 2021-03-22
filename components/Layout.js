@@ -1,11 +1,10 @@
 import React from 'react'
 import NavBar from './common/Navbar'
 
-const Layout = ({children, switchTheme}) => {
+const Layout = ({children, theme, switchTheme}) => {
   return (
     <div>
-      <button onClick={switchTheme}>Change theme</button>
-      <NavBar/>
+      <NavBar switchTheme={switchTheme} theme={theme}/>
       {children}
     </div>
   )
