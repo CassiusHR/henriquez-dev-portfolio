@@ -6,6 +6,7 @@ import { ThemeProvider } from "styled-components"
 import dynamic from 'next/dynamic'
 import { lightTheme, darkTheme, GlobalStyles } from "../configs/ThemeConfig"
 import "../configs/nprogress.css";
+import GlobalContextProvider from '../context/GlobalContext'
 
 const TopProgressBar = dynamic(
   () => {
@@ -15,7 +16,7 @@ const TopProgressBar = dynamic(
 );
 
 function MyApp({ Component, pageProps, router }) {
-  const [theme, setTheme] = useState("light") 
+  const [theme, setTheme] = useState("dark") 
 
   const toggleTheme = () => {
       theme == 'light' ? setTheme('dark') : setTheme('light')
@@ -23,14 +24,16 @@ function MyApp({ Component, pageProps, router }) {
 
   return (
     <ThemeProvider theme={theme == 'light' ? lightTheme : darkTheme}>
-      <GlobalStyles/>
-      <Layout switchTheme={toggleTheme} theme={theme}>
-        <TopProgressBar />
-        <AnimatePresence exitBeforeEnter>
-          <Component {...pageProps} key={router.route} />
-        </AnimatePresence>
-      </Layout>
-    </ThemeProvider>
+      <GlobalContextProvider>
+        <GlobalStyles/>
+        <Layout switchTheme={toggleTheme} theme={theme}>
+          <TopProgressBar />
+          <AnimatePresence exitBeforeEnter>
+            <Component {...pageProps} key={router.route} />
+          </AnimatePresence>
+        </Layout>
+        </GlobalContextProvider>
+      </ThemeProvider>
   )
 }
 

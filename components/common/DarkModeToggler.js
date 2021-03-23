@@ -192,7 +192,7 @@ const DarkModeToggler = ({ theme, switchTheme }) => {
       </AnimatePresence>
       <SwitchContainer>
         <label>
-          <input type="checkbox" onChange={switchTheme}/>
+          <input type="checkbox" onChange={switchTheme} defaultChecked={true}/>
           <div className="planet">
           </div>
           <div className="elements">
