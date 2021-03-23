@@ -13,6 +13,10 @@ const NavBar = styled.nav`
   width:100%;
   height:60px;
   position:relative;
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:99;
   ul{
     display:flex;
     flex-direction:row;

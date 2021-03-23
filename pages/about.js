@@ -5,6 +5,7 @@ import { homepageToolbarDocs } from '../utils/prismicToolbarQueries'
 import useUpdatePreviewRef from '../utils/hooks/useUpdatePreviewRef'
 import useUpdateToolbarDocs from '../utils/hooks/useUpdateToolbarDocs'
 import { GlobalContext } from '../context/GlobalContext'
+import HeaderSection from '../components/common/HeaderSection'
 import { motion } from 'framer-motion'
 
 const about = ({doc, menu, lang, preview}) => {
@@ -20,8 +21,7 @@ const about = ({doc, menu, lang, preview}) => {
         <title>Carlos Henriquez - About</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1>About</h1>
-      <h2>{contextData.lang ? contextData.lang : ""}</h2>
+      <HeaderSection fullImg={doc.data.header_image_full.url} previewImg={doc.data.header_image_small.url} headerText={doc.data.title[0].text} headerDescription={doc.data.description[0].text}/>
     </motion.div>
   )
 }
