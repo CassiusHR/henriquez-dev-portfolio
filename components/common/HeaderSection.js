@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import ProgressiveImage from "react-progressive-image-loading"
 
@@ -115,15 +115,11 @@ const HeaderSection = ({ fullImg, previewImg, headerText, headerDescription }) =
             preview={previewImg}
             src={fullImg}
             render={(src, style) => <div className='feature-image' style={Object.assign(style, { backgroundImage: `url(${src})`})} />}
-            transitionTime={1000}
+            transitionTime={500}
             transitionFunction="ease"
         />
-        <div className="feature-text">
-          <h1>{headerText}</h1>
-        </div>
-        <div className="feature-desc">
-          <p>{headerDescription}</p>
-        </div>
+        <div className="feature-text"><h1>{headerText}</h1></div>
+        <div className="feature-desc"><p>{headerDescription}</p></div>
       </FeatureImageContainer>
       <Box>Hola</Box>
     </HeaderContainer>
