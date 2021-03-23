@@ -39,10 +39,12 @@ const IndexBox = styled.div`
   }
 `
 
-const IndexHeader = () => {
+const IndexHeader = ({ imgUrl }) => {
   return (
     <IndexContainer>
-      <IndexBox></IndexBox>
+      <IndexBox>
+        <img src={imgUrl} alt="pichula-de-macaquinio"/>
+      </IndexBox>
       <IndexBox>
         <h1>BREWED IN CHILE<br/>MOVED TO THE STATES<br/>AVAILABLE WORLDWIDE</h1>
       </IndexBox>
