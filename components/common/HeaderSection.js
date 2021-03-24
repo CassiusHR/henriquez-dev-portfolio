@@ -34,14 +34,23 @@ const FeatureImageContainer = styled.div`
   .feature-text{
     position:absolute;
     left:100px;
-    top:50%;
+    top:46%;
     z-index:99;
     h1{
-      color:white;
-      font-size:5rem;
+      background-color: red;
+      background-image: linear-gradient(45deg, #f3ec78, #af4261);
+      background-size: 100%;
+      background-repeat: repeat;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent; 
+      -moz-background-clip: text;
+      -moz-text-fill-color: transparent;
+      font-size:6rem;
       margin:0;
       position:relative;
       overflow:hidden;
+      font-weight:700;
       animation: text-anim 1s cubic-bezier(.77,0,.18,1) forwards;
       :after{
         content: '';
@@ -50,7 +59,7 @@ const FeatureImageContainer = styled.div`
         right: 0;
         width: 100%;
         height: 100%;
-        background: white;
+        background: linear-gradient(45deg, #f3ec78, #af4261);
         animation: a-ltr-after 1s cubic-bezier(.77,0,.18,1) forwards;
         transform: translateX(-101%);
       }
