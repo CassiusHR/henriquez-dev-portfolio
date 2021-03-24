@@ -16,7 +16,7 @@ const NavBar = styled.nav`
   position:fixed;
   top:0;
   left:0;
-  z-index:99;
+  z-index:10;
   ul{
     display:flex;
     flex-direction:row;
@@ -24,6 +24,10 @@ const NavBar = styled.nav`
     align-items:center;
     list-style-type:none;
     padding:0px;
+    height:100%;
+    border-radius: 0px 0px 6px 6px;
+    padding: 0px 15px;
+    transition: background 0.5s ease;
     li{
       margin:0 10px;
       font-size:14px;
@@ -39,9 +43,9 @@ const NavBar = styled.nav`
         width:150%;
         bottom:-5px;
         left:-25%;
-        height:50px;
-        border-radius:0px 0px 6px 6px;
-        background:var(--navSelected);
+        height:29px;
+        border-radius:6px;
+        border: 1px solid var(--glassbg);
         transition:background 0.3s ease;
         z-index:-1;
       }

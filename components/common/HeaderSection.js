@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import ProgressiveImage from "react-progressive-image-loading"
+import LazyImage from 'react-lazy-blur-image';
 
 const HeaderContainer = styled.section`
   width:100%;
-  height:100vh;
   display:flex;
   align-items:center;
   flex-direction:column;
@@ -22,8 +21,7 @@ const FeatureImageContainer = styled.div`
     left:0;
     bottom:0;
     right:0;
-    background:rgba(0,0,0,0.5);
-    z-index:10;
+    background:rgba(0,0,0,0.6);
   }
   .feature-image {
     width:100%;
@@ -61,12 +59,14 @@ const FeatureImageContainer = styled.div`
   .feature-desc{
     position:absolute;
     left:100px;
-    top:65%;
+    top:62%;
     z-index:99;
     p{
-      color:rgba(250,250,250,0.6);
+      color:rgba(250,250,250,1);
       position:relative;
       overflow:hidden;
+      font-size:24px;
+      font-weight:200;
       animation: text-anim 1.5s cubic-bezier(.77,0,.18,1) forwards;
       :after{
         content: '';
@@ -96,32 +96,25 @@ const FeatureImageContainer = styled.div`
     100% {transform: translateX(0%)}
   }
 `
-
-const Box = styled.div`
-  width:200px;
-  border: 1px solid var(--outline);
-  border-radius:6px;
-  background: var(--background);
-  padding:20px;
-  transition: all 0.3s ease;
-  transition-delay:0.3s;
-`
+const Image = styled.img`
+  height: 100%;
+  width: 100%;
+  display: block;
+  object-fit: cover;
+`;
 
 const HeaderSection = ({ fullImg, previewImg, headerText, headerDescription }) => {
   return (
     <HeaderContainer>
       <FeatureImageContainer>
-        <ProgressiveImage
-            preview={previewImg}
-            src={fullImg}
-            render={(src, style) => <div className='feature-image' style={Object.assign(style, { backgroundImage: `url(${src})`})} />}
-            transitionTime={500}
-            transitionFunction="ease"
+        <LazyImage
+          uri={fullImg}
+          placeholder={previewImg}
+          render={(src, style) => <Image src={src} style={style} />}
         />
         <div className="feature-text"><h1>{headerText}</h1></div>
         <div className="feature-desc"><p>{headerDescription}</p></div>
       </FeatureImageContainer>
-      <Box>Hola</Box>
     </HeaderContainer>
   )
 }

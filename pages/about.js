@@ -7,6 +7,7 @@ import useUpdateToolbarDocs from '../utils/hooks/useUpdateToolbarDocs'
 import { GlobalContext } from '../context/GlobalContext'
 import HeaderSection from '../components/common/HeaderSection'
 import { motion } from 'framer-motion'
+import ContentSection from '../components/common/ContentSection'
 
 const about = ({doc, menu, lang, preview}) => {
   const {contextData,setContextData} = useContext(GlobalContext)
@@ -22,6 +23,11 @@ const about = ({doc, menu, lang, preview}) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <HeaderSection fullImg={doc.data.header_image_full.url} previewImg={doc.data.header_image_small.url} headerText={doc.data.title[0].text} headerDescription={doc.data.description[0].text}/>
+      <ContentSection>
+        <h2>The short</h2>
+        <p>lorem ipsum</p>
+        <h2>The long</h2>
+      </ContentSection>
     </motion.div>
   )
 }

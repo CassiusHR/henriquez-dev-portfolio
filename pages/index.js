@@ -12,9 +12,6 @@ const Home = ({doc, menu, lang, preview}) =>{
       <Head>
         <title>Carlos Henriquez - Home</title>
         <link rel="icon" href="/favicon.ico" />
-        {console.log(doc)}
-        {console.log(menu)}
-        {console.log(lang)}
       </Head>
       <IndexHeader imgUrl={doc.data.body[0].primary.image.url}/>
     </motion.div>
