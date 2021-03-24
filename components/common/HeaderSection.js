@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import LazyImage from 'react-lazy-blur-image';
 
 const HeaderContainer = styled.section`
   width:100%;
@@ -116,11 +115,6 @@ const HeaderSection = ({ fullImg, previewImg, headerText, headerDescription }) =
   return (
     <HeaderContainer>
       <FeatureImageContainer>
-        <LazyImage
-          uri={fullImg}
-          placeholder={previewImg}
-          render={(src, style) => <Image src={src} style={style} />}
-        />
         <div className="feature-text"><h1>{headerText}</h1></div>
         <div className="feature-desc"><p>{headerDescription}</p></div>
       </FeatureImageContainer>

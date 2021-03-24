@@ -20,8 +20,6 @@
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-i18next": "^11.8.10",
-    "react-lazy-blur-image": "^0.1.2",
-    "react-progressive-graceful-image": "^0.6.12",
     "styled-components": "^5.2.1"
   }
 }

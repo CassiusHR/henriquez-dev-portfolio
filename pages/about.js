@@ -12,10 +12,6 @@ import ContentSection from '../components/common/ContentSection'
 const about = ({doc, menu, lang, preview}) => {
   const {contextData,setContextData} = useContext(GlobalContext)
 
-  useEffect(()=>{
-    setContextData(menu)
-  },[])
-
   return (
     <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}>
       <Head>
@@ -25,7 +21,7 @@ const about = ({doc, menu, lang, preview}) => {
       <HeaderSection fullImg={doc.data.header_image_full.url} previewImg={doc.data.header_image_small.url} headerText={doc.data.title[0].text} headerDescription={doc.data.description[0].text}/>
       <ContentSection>
         <h2>The short</h2>
-        <p>lorem ipsum</p>
+        <p>{contextData.pico}</p>
         <h2>The long</h2>
       </ContentSection>
     </motion.div>

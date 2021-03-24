@@ -13,7 +13,7 @@ const work = ({doc, menu, lang, preview}) => {
   const {contextData,setContextData} = useContext(GlobalContext)
 
   useEffect(()=>{
-    setContextData(menu)
+    setContextData({...contextData, pico:'ano'})
   },[])
 
   return (
@@ -24,7 +24,7 @@ const work = ({doc, menu, lang, preview}) => {
       </Head>
       <HeaderSection fullImg={doc.data.full_image.url} previewImg={doc.data.small_image.url} headerText={doc.data.title[0].text} headerDescription={doc.data.description[0].text}/>
       <ContentSection>
-        <h2>Workie workie</h2>
+        <h2>{contextData.pico}</h2>
       </ContentSection>
     </motion.div>
   )
