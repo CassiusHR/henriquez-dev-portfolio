@@ -8,6 +8,7 @@ import HeaderSection from '../components/common/HeaderSection'
 import { motion } from 'framer-motion'
 import ContentSection from '../components/common/ContentSection'
 import Layout from '../components/Layout'
+import Footer from '../components/common/Footer'
 
 const work = ({doc, menu, lang, preview, theme, switchTheme }) => {
   return (
@@ -21,6 +22,7 @@ const work = ({doc, menu, lang, preview, theme, switchTheme }) => {
         <ContentSection>
         </ContentSection>
       </motion.div>
+      <Footer/>
     </Layout>
   )
 }

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { linkResolver, hrefResolver } from '../prismic-configuration';
-import CL from '../public/Cl.svg'
+import CL from '../public/CL.svg'
 import US from '../public/US.svg'
 
 const AltLangs = ({ altLangs = [] }) =>
