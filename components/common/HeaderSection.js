@@ -104,12 +104,6 @@ const FeatureImageContainer = styled.div`
     100% {transform: translateX(0%)}
   }
 `
-const Image = styled.img`
-  height: 100%;
-  width: 100%;
-  display: block;
-  object-fit: cover;
-`;
 
 const HeaderSection = ({ fullImg, previewImg, headerText, headerDescription }) => {
   return (

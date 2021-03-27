@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import Link from 'next/link'
 import { useRouter } from "next/router";
 import DarkModeToggler from './DarkModeToggler'
+import { hrefResolver } from '../../prismic-configuration'
+import LanguageSwitcher from '../LanguageSwitcher'
 import { motion, AnimateSharedLayout } from 'framer-motion'
 
 const NavBar = styled.nav`
@@ -53,37 +55,20 @@ const NavBar = styled.nav`
   }
 `
 
-const Navbar = ({ theme, switchTheme }) => {
+const Navbar = ({ theme, switchTheme, menuLinks }) => {
   const router = useRouter();
-
   return (
     <NavBar>
       <AnimateSharedLayout>
         <ul>
-          <li key="homelink">
-            <Link href="/">
-              <a>Home</a>
-            </Link>
-            {router.pathname == "/" ? <motion.div layoutId="selectedbox" className="selected"></motion.div>:null}
-          </li>
-          <li key="aboutlink">
-            <Link href="/about">
-              <a>About</a>
-            </Link>
-            {router.pathname == "/about" ? <motion.div layoutId="selectedbox" className="selected"></motion.div>:null}
-          </li>
-          <li key="worklink">
-            <Link href="/work">
-              <a>Work</a>
-            </Link>
-            {router.pathname == "/work" ? <motion.div layoutId="selectedbox" className="selected"></motion.div>:null}
-          </li>
-          <li key="bloglink">
-            <Link href="/blog">
-              <a>Blog</a>
-            </Link>
-            {router.pathname == "/blog" ? <motion.div layoutId="selectedbox" className="selected"></motion.div>:null}
-          </li>
+          {menuLinks && menuLinks.map((link,i)=>(
+            <li key={`menulink-${i}`}>
+              <Link href={hrefResolver(link.link)} passHref>
+                <a>{link.label[0].text}</a>
+              </Link>
+              {router.pathname == hrefResolver(link.link) ? <motion.div layoutId="selectedbox" className="selected"></motion.div>:null}
+            </li>
+          ))}
         </ul>
       </AnimateSharedLayout>
       <DarkModeToggler switchTheme={switchTheme} theme={theme}/>

@@ -16,7 +16,8 @@ const TopProgressBar = dynamic(
 );
 
 function MyApp({ Component, pageProps, router }) {
-  const [theme, setTheme] = useState("dark") 
+  const [theme, setTheme] = useState("dark")
+  const [menuLinks, setMenuLinks] = useState(null)
 
   const toggleTheme = () => {
       theme == 'light' ? setTheme('dark') : setTheme('light')
@@ -26,10 +27,10 @@ function MyApp({ Component, pageProps, router }) {
     <ThemeProvider theme={theme == 'light' ? lightTheme : darkTheme}>
       <GlobalContextProvider>
         <GlobalStyles/>
-        <Layout switchTheme={toggleTheme} theme={theme}>
+        <Layout switchTheme={toggleTheme} theme={theme} menuLinks={menuLinks}>
           <TopProgressBar />
           <AnimatePresence exitBeforeEnter>
-            <Component {...pageProps} key={router.route} />
+            <Component {...pageProps} setMenuLinks={setMenuLinks} key={router.route} />
           </AnimatePresence>
         </Layout>
         </GlobalContextProvider>

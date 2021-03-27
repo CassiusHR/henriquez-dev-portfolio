@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react'
 import Head from 'next/head'
 import { Client, manageLocal } from '../utils/prismicHelpers'
 import { homepageToolbarDocs } from '../utils/prismicToolbarQueries'
@@ -6,7 +7,10 @@ import useUpdateToolbarDocs from '../utils/hooks/useUpdateToolbarDocs'
 import IndexHeader from '../components/page-components/IndexHeader'
 import { motion } from 'framer-motion'
 
-const Home = ({doc, menu, lang, preview}) =>{
+const Home = ({doc, menu, lang, preview, setMenuLinks}) =>{
+  useEffect(()=>{
+    setMenuLinks(menu.data.menu_links)
+  },[])
   return (
     <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}>
       <Head>
