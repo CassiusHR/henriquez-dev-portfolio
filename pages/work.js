@@ -4,29 +4,24 @@ import { Client, manageLocal } from '../utils/prismicHelpers'
 import { homepageToolbarDocs } from '../utils/prismicToolbarQueries'
 import useUpdatePreviewRef from '../utils/hooks/useUpdatePreviewRef'
 import useUpdateToolbarDocs from '../utils/hooks/useUpdateToolbarDocs'
-import { GlobalContext } from '../context/GlobalContext'
 import HeaderSection from '../components/common/HeaderSection'
 import { motion } from 'framer-motion'
 import ContentSection from '../components/common/ContentSection'
+import Layout from '../components/Layout'
 
-const work = ({doc, menu, lang, preview}) => {
-  const {contextData,setContextData} = useContext(GlobalContext)
-
-  useEffect(()=>{
-    setContextData({...contextData, pico:'ano'})
-  },[])
-
+const work = ({doc, menu, lang, preview, theme, switchTheme }) => {
   return (
-    <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}>
-      <Head>
-        <title>Carlos Henriquez - Work</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <HeaderSection fullImg={doc.data.full_image.url} previewImg={doc.data.small_image.url} headerText={doc.data.title[0].text} headerDescription={doc.data.description[0].text}/>
-      <ContentSection>
-        <h2>{contextData.pico}</h2>
-      </ContentSection>
-    </motion.div>
+    <Layout switchTheme={switchTheme} theme={theme} menuLinks={menu.data.menu_links} altLangs={doc.alternate_languages} lang={lang}>
+      <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}>
+        <Head>
+          <title>Carlos Henriquez - Work</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <HeaderSection fullImg={doc.data.full_image.url} previewImg={doc.data.small_image.url} headerText={doc.data.title[0].text} headerDescription={doc.data.description[0].text}/>
+        <ContentSection>
+        </ContentSection>
+      </motion.div>
+    </Layout>
   )
 }
 

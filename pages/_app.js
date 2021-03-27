@@ -27,12 +27,10 @@ function MyApp({ Component, pageProps, router }) {
     <ThemeProvider theme={theme == 'light' ? lightTheme : darkTheme}>
       <GlobalContextProvider>
         <GlobalStyles/>
-        <Layout switchTheme={toggleTheme} theme={theme} menuLinks={menuLinks}>
           <TopProgressBar />
           <AnimatePresence exitBeforeEnter>
-            <Component {...pageProps} setMenuLinks={setMenuLinks} key={router.route} />
+            <Component {...pageProps} setMenuLinks={setMenuLinks} switchTheme={toggleTheme} theme={theme} key={router.route} />
           </AnimatePresence>
-        </Layout>
         </GlobalContextProvider>
       </ThemeProvider>
   )

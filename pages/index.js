@@ -6,19 +6,21 @@ import useUpdatePreviewRef from '../utils/hooks/useUpdatePreviewRef'
 import useUpdateToolbarDocs from '../utils/hooks/useUpdateToolbarDocs'
 import IndexHeader from '../components/page-components/IndexHeader'
 import { motion } from 'framer-motion'
+import Layout from '../components/Layout'
+import Footer from '../components/common/Footer'
 
-const Home = ({doc, menu, lang, preview, setMenuLinks}) =>{
-  useEffect(()=>{
-    setMenuLinks(menu.data.menu_links)
-  },[])
+const Home = ({doc, menu, lang, preview, setMenuLinks, theme, switchTheme}) =>{
   return (
-    <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}>
-      <Head>
-        <title>Carlos Henriquez - Home</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <IndexHeader imgUrl={doc.data.body[0].primary.image.url}/>
-    </motion.div>
+    <Layout switchTheme={switchTheme} theme={theme} menuLinks={menu.data.menu_links} altLangs={doc.alternate_languages} lang={lang}>
+      <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}>
+        <Head>
+          <title>Carlos Henriquez - Home</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <IndexHeader imgUrl={doc.data.body[0].primary.image.url}/>
+        <Footer/>
+      </motion.div>
+    </Layout>
   )
 }
 

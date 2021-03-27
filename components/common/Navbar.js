@@ -55,7 +55,7 @@ const NavBar = styled.nav`
   }
 `
 
-const Navbar = ({ theme, switchTheme, menuLinks }) => {
+const Navbar = ({ theme, switchTheme, menuLinks, altLangs }) => {
   const router = useRouter();
   return (
     <NavBar>
@@ -63,12 +63,13 @@ const Navbar = ({ theme, switchTheme, menuLinks }) => {
         <ul>
           {menuLinks && menuLinks.map((link,i)=>(
             <li key={`menulink-${i}`}>
-              <Link href={hrefResolver(link.link)} passHref>
+              <Link href={hrefResolver(link.link)} scroll={false} passHref>
                 <a>{link.label[0].text}</a>
               </Link>
               {router.pathname == hrefResolver(link.link) ? <motion.div layoutId="selectedbox" className="selected"></motion.div>:null}
             </li>
           ))}
+          <LanguageSwitcher altLangs={altLangs} />
         </ul>
       </AnimateSharedLayout>
       <DarkModeToggler switchTheme={switchTheme} theme={theme}/>

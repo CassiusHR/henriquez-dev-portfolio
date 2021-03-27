@@ -11,7 +11,7 @@ const IndexContainer = styled.section`
   justify-content:center;
   align-items:center;
   flex-direction:row;
-  position:fixed;
+  position:relative;
   top:0px;
   z-index:-1;
   @media (max-width:768px) {

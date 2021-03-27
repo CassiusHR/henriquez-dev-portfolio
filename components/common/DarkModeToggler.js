@@ -187,7 +187,7 @@ transform:scale(0.5)translateX(9px);
 const DarkModeToggler = ({ theme, switchTheme }) => {
   return (
     <DarkModeContainer>
-      <AnimatePresence exitBeforeEnter>
+      <AnimatePresence exitBeforeEnter initial={false}>
       {theme === 'light' ? <motion.p initial={{opacity:0,y:-5}} animate={{opacity:0.6,y:0}} exit={{opacity:0,y:5}}  key='light-text'>Light</motion.p> : <motion.p initial={{opacity:0,y:-5}} animate={{opacity:0.6,y:0}} exit={{opacity:0,y:5}} key='dark-text'>Dark</motion.p>}
       </AnimatePresence>
       <SwitchContainer>

@@ -7,24 +7,26 @@ import useUpdateToolbarDocs from '../utils/hooks/useUpdateToolbarDocs'
 import HeaderSection from '../components/common/HeaderSection'
 import { motion } from 'framer-motion'
 import ContentSection from '../components/common/ContentSection'
+import Layout from '../components/Layout'
+import Footer from '../components/common/Footer'
 
-const about = ({doc, menu, lang, preview, setMenuLinks}) => {
-  useEffect(()=>{
-    setMenuLinks(menu.data.menu_links)
-  },[])
+const about = ({doc, menu, lang, preview, switchTheme, theme}) => {
 
   return (
-    <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}>
-      <Head>
-        <title>Carlos Henriquez - About</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <HeaderSection fullImg={doc.data.header_image_full.url} previewImg={doc.data.header_image_small.url} headerText={doc.data.title[0].text} headerDescription={doc.data.description[0].text}/>
-      <ContentSection>
-        <h2>The short</h2>
-        <h2>The long</h2>
-      </ContentSection>
-    </motion.div>
+    <Layout switchTheme={switchTheme} theme={theme} menuLinks={menu.data.menu_links} altLangs={doc.alternate_languages} lang={lang}>
+      <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}>
+        <Head>
+          <title>Carlos Henriquez - About</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <HeaderSection fullImg={doc.data.header_image_full.url} previewImg={doc.data.header_image_small.url} headerText={doc.data.title[0].text} headerDescription={doc.data.description[0].text}/>
+        <ContentSection>
+          <h2>The short</h2>
+          <h2>The long</h2>
+        </ContentSection>
+      </motion.div>
+      <Footer/>
+    </Layout>
   )
 }
 

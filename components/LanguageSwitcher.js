@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import { linkResolver, hrefResolver } from '../prismic-configuration';
+import CL from '../public/Cl.svg'
+import US from '../public/US.svg'
 
 const AltLangs = ({ altLangs = [] }) =>
   altLangs.map((altLang) => {
@@ -11,7 +13,7 @@ const AltLangs = ({ altLangs = [] }) =>
           href={hrefResolver(altLang)}
           passHref
         >
-          <a className={`flag-icon-${altLang.lang.slice(-2)}`}>`flag-icon-${altLang.lang.slice(-2)}`</a>
+          <a>{altLang.lang === 'en-us' ? <US/> : <CL/>}</a>
         </Link>
       </li>
     );
