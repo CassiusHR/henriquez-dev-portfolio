@@ -35,43 +35,31 @@ const NavBar = styled.nav`
       font-size:14px;
       letter-spacing:2px;
       position:relative;
+      &.selected{
+        color:red;
+      }
       a{
         z-index:10;
         -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
-      }
-      .selected{
-        content:'';
-        position:absolute;
-        width:150%;
-        bottom:-5px;
-        left:-25%;
-        height:29px;
-        border-radius:6px;
-        border: 1px solid var(--glassbg);
-        transition:background 0.3s ease;
-        z-index:-1;
       }
     }
   }
 `
 
-const Navbar = ({ theme, switchTheme, menuLinks, altLangs }) => {
+const Navbar = ({ theme, switchTheme, menuLinks, altLangs, currentLang }) => {
   const router = useRouter();
   return (
     <NavBar>
-      <AnimateSharedLayout>
-        <ul>
-          {menuLinks && menuLinks.map((link,i)=>(
-            <li key={`menulink-${i}`}>
-              <Link href={hrefResolver(link.link)} scroll={false} passHref>
-                <a>{link.label[0].text}</a>
-              </Link>
-              {router.pathname == hrefResolver(link.link) ? <motion.div layoutId="selectedbox" className="selected"></motion.div>:null}
-            </li>
-          ))}
-          <LanguageSwitcher altLangs={altLangs} />
-        </ul>
-      </AnimateSharedLayout>
+      <ul>
+        {menuLinks && menuLinks.map((link,i)=>(
+          <li key={`menulink-${i}`} className={(`/${currentLang}${router.pathname}`) == hrefResolver(link.link) ? 'selected' : ''}>
+            <Link href={hrefResolver(link.link)} scroll={false} passHref>
+              <a>{link.label[0].text}</a>
+            </Link>
+          </li>
+        ))}
+        <LanguageSwitcher altLangs={altLangs} />
+      </ul>
       <DarkModeToggler switchTheme={switchTheme} theme={theme}/>
     </NavBar>
   )

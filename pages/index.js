@@ -18,8 +18,8 @@ const Home = ({doc, menu, lang, preview, setMenuLinks, theme, switchTheme}) =>{
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <IndexHeader imgUrl={doc.data.body[0].primary.image.url}/>
-        <Footer/>
       </motion.div>
+      <Footer/>
     </Layout>
   )
 }

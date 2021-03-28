@@ -43,6 +43,10 @@ const IndexBox = styled(motion.div)`
   &.img-box{
     position:relative;
     width:800px;
+    @media (max-width:768px) {
+      width:100%;
+      padding:0 15px;
+    } 
     svg{
       opacity:0.8;
     }
@@ -57,6 +61,7 @@ const IndexBox = styled(motion.div)`
       animation-direction: forward;
       animation-duration:8s;
       animation-timing-function: ease-in-out;
+      
     }
     .hamburguesita{
       position:absolute;
@@ -69,6 +74,10 @@ const IndexBox = styled(motion.div)`
       animation-direction: forward;
       animation-duration:9s;
       animation-timing-function: ease-in-out;
+      @media (max-width:768px) {
+        right:200px;
+        top:0px;
+      } 
     }
   }
   @keyframes hover-anim {
@@ -99,7 +108,6 @@ const IndexHeader = () => {
   return (
     <IndexContainer>
       <IndexBox>
-
       </IndexBox>
       <IndexBox className="img-box" initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{ delay: 0.3 }}>
         <h1>BREWED IN CHILE<br/>MOVED TO THE STATES<br/>AVAILABLE WORLDWIDE</h1>

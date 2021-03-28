@@ -30,62 +30,81 @@ const FeatureImageContainer = styled.div`
     background-origin:center;
     background-size:cover;
   }
-  .feature-text{
-    position:absolute;
-    left:100px;
-    top:46%;
-    z-index:99;
-    h1{
-      background-color: red;
-      background-image: linear-gradient(45deg, #f3ec78, #af4261);
-      background-size: 100%;
-      background-repeat: repeat;
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent; 
-      -moz-background-clip: text;
-      -moz-text-fill-color: transparent;
-      font-size:6rem;
-      margin:0;
-      position:relative;
-      overflow:hidden;
-      font-weight:700;
-      animation: text-anim 1s cubic-bezier(.77,0,.18,1) forwards;
-      :after{
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(45deg, #f3ec78, #af4261);
-        animation: a-ltr-after 1s cubic-bezier(.77,0,.18,1) forwards;
-        transform: translateX(-101%);
+  .text-container {
+    position:relative;
+    z-index:1;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    align-items:center;
+    height:100%;
+    padding-bottom:200px;
+    .feature-text{
+      max-width:1024px;
+      width:100%;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:flex-start;
+      h1{
+        display:inline-block;
+        background-color: red;
+        background-image: linear-gradient(45deg, #f3ec78, #af4261);
+        background-size: 100%;
+        background-repeat: repeat;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent; 
+        -moz-background-clip: text;
+        -moz-text-fill-color: transparent;
+        font-size:6rem;
+        line-height:6rem;
+        margin:0;
+        position:relative;
+        overflow:hidden;
+        font-weight:700;
+        animation: text-anim 1s cubic-bezier(.77,0,.18,1) forwards;
+        :after{
+          content: '';
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(45deg, #f3ec78, #af4261);
+          animation: a-ltr-after 1s cubic-bezier(.77,0,.18,1) forwards;
+          transform: translateX(-101%);
+        }
       }
     }
-  }
-  .feature-desc{
-    position:absolute;
-    left:100px;
-    top:62%;
-    z-index:99;
-    p{
-      color:rgba(250,250,250,1);
-      position:relative;
-      overflow:hidden;
-      font-size:24px;
-      font-weight:200;
-      animation: text-anim 1.5s cubic-bezier(.77,0,.18,1) forwards;
-      :after{
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 100%;
-        height: 100%;
-        background: white;
-        animation: a-ltr-after 1.5s cubic-bezier(.77,0,.18,1) forwards;
-        transform: translateX(-101%);
+    .feature-desc{
+      max-width:1024px;
+      width:100%;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:flex-start;
+      p{
+      display:inline-block;
+        color:rgba(250,250,250,1);
+        position:relative;
+        overflow:hidden;
+        font-size:24px;
+        font-weight:200;
+        animation: text-anim 1.5s cubic-bezier(.77,0,.18,1) forwards;
+        margin:0;
+        :after{
+          content: '';
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 100%;
+          height: 100%;
+          background: white;
+          animation: a-ltr-after 1.5s cubic-bezier(.77,0,.18,1) forwards;
+          transform: translateX(-101%);
+        }
       }
     }
   }
@@ -109,8 +128,10 @@ const HeaderSection = ({ fullImg, previewImg, headerText, headerDescription }) =
   return (
     <HeaderContainer>
       <FeatureImageContainer>
-        <div className="feature-text"><h1>{headerText}</h1></div>
-        <div className="feature-desc"><p>{headerDescription}</p></div>
+        <div className="text-container">
+          <div className="feature-text"><h1>{headerText}</h1></div>
+          <div className="feature-desc"><p>{headerDescription}</p></div>
+        </div>
       </FeatureImageContainer>
     </HeaderContainer>
   )
