@@ -1,6 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import { RichText } from 'prismic-reactjs';
+import NextLogo from '../../public/nextjs.svg'
+import ReactLogo from '../../public/React-icon.svg'
+import GatsbyLogo from '../../public/gatsby-icon.svg'
+import JsLogo from '../../public/js-icon.svg'
+import NetlifyLogo from '../../public/netlify.svg'
+import CloudflareLogo from '../../public/cloudflare.svg'
 
 const Container = styled.div`
   width:100%;
@@ -39,6 +45,12 @@ const Container = styled.div`
   p {
     margin-top:0;
   }
+  .stack-container {
+    background: #535353;
+    svg{
+      width:100px;
+    }
+  }
   .container-70 {
     width:70%;
     display:flex;
@@ -73,6 +85,14 @@ const AboutContent = ({ textData }) => {
       <Container>
         <div className="container-70 pr">
           {RichText.render(textData.the_short_desc)}
+          <div className="stack-container">
+            <JsLogo/>
+            <ReactLogo/>
+            <NextLogo/>
+            <GatsbyLogo/>
+            <NetlifyLogo/>
+            <CloudflareLogo/>
+          </div>
         </div>
         <div className="container-30">
           <div className="desc-top-image">
