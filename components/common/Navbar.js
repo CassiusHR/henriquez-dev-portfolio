@@ -35,12 +35,25 @@ const NavBar = styled.nav`
       font-size:14px;
       letter-spacing:2px;
       position:relative;
+      transition:opacity 0.3s ease;
       &.selected{
-        color:red;
+        opacity:0.5;
       }
       a{
         z-index:10;
-        -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
+        -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
+        background-color: unset;
+        background-image: unset;
+        background-size: unset;
+        background-repeat: unset;
+        background-clip: unset;
+        -webkit-background-clip: unset;
+        -webkit-text-fill-color: unset; 
+        -moz-background-clip: unset;
+        -moz-text-fill-color: unset;
+        font-weight:700;
+        color: var(--text-color);
+        transition:color 0.3s ease;
       }
     }
   }
@@ -58,7 +71,7 @@ const Navbar = ({ theme, switchTheme, menuLinks, altLangs, currentLang }) => {
             </Link>
           </li>
         ))}
-        <LanguageSwitcher altLangs={altLangs} />
+        <LanguageSwitcher altLangs={altLangs} currentLang={currentLang} />
       </ul>
       <DarkModeToggler switchTheme={switchTheme} theme={theme}/>
     </NavBar>

@@ -31,10 +31,28 @@ export const GlobalStyles = createGlobalStyle`
     --bg-planet-shadow: #828894;
     --bg-planet-lightshadow: #D7D7D820;
     --dot-size: 0.25rem;
+    --text-color: ${({ theme }) => theme.text};
   }
   body {
     background: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.text};
     transition: color 0.5s ease,background 0.5s ease;
+  }
+  p {
+    font-size:1rem;
+    font-weight:100;
+    line-height:2rem;
+  }
+  a {
+    background-color: red;
+    background-image: linear-gradient(45deg, #f3ec78, #af4261);
+    background-size: 100%;
+    background-repeat: repeat;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    font-weight:700;
   }
 `

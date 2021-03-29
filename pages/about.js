@@ -8,6 +8,7 @@ import HeaderSection from '../components/common/HeaderSection'
 import { motion } from 'framer-motion'
 import ContentSection from '../components/common/ContentSection'
 import Layout from '../components/Layout'
+import AboutContent from '../components/page-components/AboutContent'
 import Footer from '../components/common/Footer'
 
 const about = ({doc, menu, lang, preview, switchTheme, theme}) => {
@@ -21,8 +22,7 @@ const about = ({doc, menu, lang, preview, switchTheme, theme}) => {
         </Head>
         <HeaderSection fullImg={doc.data.header_image_full.url} previewImg={doc.data.header_image_small.url} headerText={doc.data.title[0].text} headerDescription={doc.data.description[0].text}/>
         <ContentSection>
-          <h2>The short</h2>
-          <h2>The long</h2>
+          <AboutContent textData={doc.data}/>
         </ContentSection>
       </motion.div>
       <Footer/>
