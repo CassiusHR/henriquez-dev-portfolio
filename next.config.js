@@ -1,5 +1,8 @@
 module.exports = {
   modules: true,
+  images: {
+    domains: ['images.prismic.io'],
+  },
   i18n: {
     // These are all the locales you want to support in
     // your application
