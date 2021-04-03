@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import ContentContainer from '../common/ContentContainer'
+import bglogo from '../../public/bglogo.svg'
 
 const SectionContainer = styled.section`
   width:100%;

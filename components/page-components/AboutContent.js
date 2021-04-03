@@ -2,20 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { RichText } from 'prismic-reactjs';
 import Image from 'next/image'
-import NextLogo from '../../public/nextjs.svg'
-import ReactLogo from '../../public/React-icon.svg'
-import GatsbyLogo from '../../public/gatsby-icon.svg'
-import VueLogo from '../../public/vue.svg'
-import NuxtLogo from '../../public/nuxt.svg'
-import GridsomeLogo from '../../public/gridsome.svg'
-import GraphqlLogo from '../../public/graphql.svg'
-import JsLogo from '../../public/js-icon.svg'
-import NetlifyLogo from '../../public/netlify.svg'
-import CloudflareLogo from '../../public/cloudflare.svg'
-import VercelLogo from '../../public/vercel.svg'
-import PrismicLogo from '../../public/prismic.svg'
-import GhostLogo from '../../public/ghost.svg'
-import JamstackLogo from '../../public/jamstack.svg'
+import AboutTechStack from './AboutTechStack'
+
 
 const Container = styled.div`
   width:100%;
@@ -25,6 +13,9 @@ const Container = styled.div`
   align-items:flex-start;
   margin-bottom:24px;
   height:100%;
+  @media (max-width:1024px) {
+    flex-direction:column;
+  } 
   &.right-align{
     justify-content:flex-end;
   }
@@ -33,9 +24,15 @@ const Container = styled.div`
   }
   .pr{
     padding-right:24px;
+    @media (max-width:1024px) {
+      padding-right:0px;
+    } 
   }
   .pl{
     padding-left:24px;
+    @media (max-width:1024px) {
+      padding-right:0px;
+    } 
   }
   h2 {
     font-size:4rem;
@@ -56,21 +53,8 @@ const Container = styled.div`
   }
   h3{
     font-weight:400;
-    font-size:1.5rem;
+    font-size:1.6rem;
     margin:0 0 14px 0;
-  }
-  .stack-container {
-    background: #414040;
-    border-radius:6px;
-    padding:14px;
-    display:flex;
-    flex-flow:row wrap;
-    justify-content:space-between;
-    align-items:flex-start;
-    svg{
-      width:100px;
-      margin:6px 0px;
-    }
   }
   .container-70 {
     width:70%;
@@ -79,6 +63,9 @@ const Container = styled.div`
     justify-content:flex-start;
     align-items:flex-start;
     height:100%;
+    @media (max-width:1024px) {
+      width:100%;
+    } 
   }
   .container-30 {
     width:30%;
@@ -87,6 +74,9 @@ const Container = styled.div`
     justify-content:flex-start;
     align-items:flex-start;
     height:100%;
+    @media (max-width:1024px) {
+      width:100%;
+    } 
   }
   .desc-top-image {
     width:100%;
@@ -94,6 +84,7 @@ const Container = styled.div`
     height:600px;
     position:relative;
     overflow:hidden;
+    border-radius:6px;
     .overlay{
       position:absolute;
       content:'';
@@ -148,22 +139,7 @@ const AboutContent = ({ textData }) => {
         <div className="container-70 pr">
           {RichText.render(textData.the_short_desc)}
           <h3>Cool tech that i love and use:</h3>
-          <div className="stack-container">
-            <JsLogo/>
-            <JamstackLogo/>
-            <GraphqlLogo/>
-            <ReactLogo/>
-            <NextLogo/>
-            <GatsbyLogo/>
-            <VueLogo/>
-            <NuxtLogo/>
-            <GridsomeLogo/>
-            <NetlifyLogo/>
-            <CloudflareLogo/>
-            <PrismicLogo/>
-            <GhostLogo/>
-            <VercelLogo/>
-          </div>
+          <AboutTechStack/>
         </div>
         <div className="container-30">
           <div className="desc-top-image">
