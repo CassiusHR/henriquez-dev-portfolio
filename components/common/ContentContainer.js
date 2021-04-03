@@ -10,6 +10,9 @@ const Container = styled(motion.div)`
   background: var(--glassbg);
   backdrop-filter: blur(20px);
   transition: background 0.5s ease;
+  @media (max-width:1024px) {
+    padding:12px;
+  } 
   .content-box{
     width:100%;
     padding:24px;
@@ -17,6 +20,9 @@ const Container = styled(motion.div)`
     background:var(--background);
     min-height:500px;
     transition: background 0.5s ease;
+    @media (max-width:1024px) {
+      padding:12px;
+    } 
   }
 `
 

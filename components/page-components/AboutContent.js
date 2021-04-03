@@ -47,6 +47,11 @@ const Container = styled.div`
     -moz-background-clip: text;
     -moz-text-fill-color: transparent;
     margin:0;
+    @media (max-width:1024px) {
+      font-size:2rem;
+      line-height:2rem;
+      margin-top:12px;
+    } 
   }
   p {
     margin-top:0;
@@ -55,6 +60,9 @@ const Container = styled.div`
     font-weight:400;
     font-size:1.6rem;
     margin:0 0 14px 0;
+    @media (max-width:1024px) {
+      font-size:1.2rem;
+    } 
   }
   .container-70 {
     width:70%;
@@ -76,7 +84,11 @@ const Container = styled.div`
     height:100%;
     @media (max-width:1024px) {
       width:100%;
-    } 
+      &.sec-img{
+        order:-1;
+        margin-bottom:12px;
+      }
+    }
   }
   .desc-top-image {
     width:100%;
@@ -85,6 +97,9 @@ const Container = styled.div`
     position:relative;
     overflow:hidden;
     border-radius:6px;
+    @media (max-width:1024px) {
+      height:150px;
+    }
     .overlay{
       position:absolute;
       content:'';
@@ -141,7 +156,7 @@ const AboutContent = ({ textData }) => {
           <h3>Cool tech that i love and use:</h3>
           <AboutTechStack/>
         </div>
-        <div className="container-30">
+        <div className="container-30 sec-img">
           <div className="desc-top-image">
             <Image src={textData.feature_top_image_desktop.url} layout="fill"/>
             <div className="overlay">

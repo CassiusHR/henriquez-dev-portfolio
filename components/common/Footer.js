@@ -11,10 +11,12 @@ const FooterWrapper = styled.div`
 const Container = styled.div`
   width:100%;
   max-width: 1024px;
+  padding:24px;
   p{
     font-weight:100;
     text-align:center;
     font-size:12px;
+    line-height:16px;
   }
 `
 

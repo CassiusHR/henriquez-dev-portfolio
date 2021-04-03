@@ -40,6 +40,10 @@ const FeatureImageContainer = styled.div`
     align-items:center;
     height:100%;
     padding-bottom:200px;
+    @media (max-width:1024px) {
+      padding-left:24px;
+      padding-right:24px;
+    } 
     .feature-text{
       max-width:1024px;
       width:100%;
@@ -64,6 +68,10 @@ const FeatureImageContainer = styled.div`
         position:relative;
         overflow:hidden;
         font-weight:700;
+        @media (max-width:1024px) {
+          font-size:4rem;
+          line-height:4rem;
+        } 
         animation: text-anim 1s cubic-bezier(.77,0,.18,1) forwards;
         :after{
           content: '';
@@ -94,6 +102,11 @@ const FeatureImageContainer = styled.div`
         font-weight:200;
         animation: text-anim 1.5s cubic-bezier(.77,0,.18,1) forwards;
         margin:0;
+        @media (max-width:1024px) {
+          font-size:1.2rem;
+          line-height:1.2rem;
+          margin-top:12px;
+        } 
         :after{
           content: '';
           position: absolute;

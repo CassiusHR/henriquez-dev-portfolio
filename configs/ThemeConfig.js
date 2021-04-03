@@ -3,6 +3,8 @@ import { createGlobalStyle} from "styled-components"
 export const lightTheme = {
   body: '#FFF',
   bodyBackground:'#9a9a9a',
+  cardBackground1: '#fbfbfb',
+  cardBackground2: '#f1f1f1',
   pageBackground:'#fffffff2',
   text: '#363537',
   toggleBorder: '#FFF',
@@ -16,6 +18,8 @@ export const lightTheme = {
 export const darkTheme = {
   body: '#363537',
   bodyBackground:'#363537',
+  cardBackground1: '#414040',
+  cardBackground2: '#484848',
   pageBackground: '#212121fa',
   text: '#FAFAFA',
   toggleBorder: '#6B8096',
@@ -33,6 +37,8 @@ export const GlobalStyles = createGlobalStyle`
     --pageBackground: ${({ theme }) => theme.pageBackground};
     --navSelected: ${({ theme }) => theme.navSelected};
     --glassbg: ${({ theme }) => theme.glassbg};
+    --cardBackground1: ${({ theme }) => theme.cardBackground1};
+    --cardBackground2: ${({ theme }) => theme.cardBackground2};
     --bg-planet-bright: #F2C94C;
     --bg-planet-shadow: #828894;
     --bg-planet-lightshadow: #D7D7D820;

@@ -18,7 +18,8 @@ import JamstackLogo from '../../public/jamstack.svg'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const StackContainer = styled.div`
-  background: #414040;
+  background: var(--cardBackground1);
+  transition:background 0.5s ease;
   border-radius:6px;
   padding:24px;
   display:flex;
@@ -33,8 +34,13 @@ const StackContainer = styled.div`
     margin:6px 0px;
     opacity:0.2;
     cursor:pointer;
+    -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
     margin:6px;
     transition: opacity 0.3s ease;
+    @media (max-width:1024px) {
+      max-height:30px;
+      max-width:85px;
+    } 
     &.active{
       opacity:1;
     }
@@ -42,7 +48,8 @@ const StackContainer = styled.div`
 `
 const StackDescription = styled.div`
   width:100%;
-  background: #4e4e4e;
+  background: var(--cardBackground2);
+  transition:background 0.5s ease;
   border-radius:0px 0px 6px 6px;
   -webkit-box-shadow: inset 1px 22px 15px -21px rgba(0,0,0,0.55); 
   box-shadow: inset 1px 22px 15px -21px rgba(0,0,0,0.55);
@@ -54,6 +61,9 @@ const StackDescription = styled.div`
   align-items:center;
   z-index:10;
   min-height:150px;
+  @media (max-width:1024px) {
+    min-height:200px;
+  } 
 `
 const StackDescriptionContent = styled(motion.div)`
   width:100%;
@@ -71,7 +81,7 @@ const StackDescriptionContent = styled(motion.div)`
   p{
     margin:0px;
     width:70%;
-    opacity:0.5;
+    opacity:0.6;
     line-height:1.2rem;
   }
   svg{
@@ -81,6 +91,10 @@ const StackDescriptionContent = styled(motion.div)`
     right: -105px;
     bottom: -29px;
     opacity:0.04;
+    @media (max-width:1024px) {
+      max-width:300px;
+      max-height:200px;
+    } 
   }
 `
 
