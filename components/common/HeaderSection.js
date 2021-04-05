@@ -140,19 +140,12 @@ const FeatureImageContainer = styled.div`
 `
 
 const HeaderSection = ({ fullImg, previewImg, headerText, headerDescription }) => {
-  const [loaded,setLoaded] = useState(false)
-  const image = useRef()
 
-  useEffect(() => {
-      if (image.current.complete) setLoaded(true)
-  }, [])
-
-  const handleLoad = () => setLoaded(true)
 
   return (
     <HeaderContainer>
       <FeatureImageContainer>
-        <Image src={fullImg} priority={true} onLoad={handleLoad} layout='fill' className="feature-image" ref={image}/>
+        <Image src={fullImg} priority={true} layout='fill' className="feature-image"/>
         <div className="text-container">
           <div className="feature-text"><h1>{headerText}</h1></div>
           <div className="feature-desc"><p>{headerDescription}</p></div>
