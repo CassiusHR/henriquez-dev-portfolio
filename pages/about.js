@@ -19,7 +19,8 @@ const about = ({doc, menu, lang, preview, switchTheme, theme}) => {
         <Head>
           <title>Carlos Henriquez - About</title>
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-          <meta property="og:title" content="Carlos Henriquez - About" key="title" />
+          <meta property="og:title" content={`Henriquez.dev - ${doc.data.title[0].text}`} key="title" />
+          <meta property="og:description" content={doc.data.description[0].text} key="description" />
           <meta property="og:image" content={doc.data.header_image_full.url} key="page-image" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
