@@ -59,7 +59,7 @@ const Container = styled.div`
   h3{
     font-weight:400;
     font-size:1.6rem;
-    margin:0 0 14px 0;
+    margin:14px 0 14px 0;
     @media (max-width:1024px) {
       font-size:1.2rem;
     } 
@@ -98,7 +98,20 @@ const Container = styled.div`
     overflow:hidden;
     border-radius:6px;
     @media (max-width:1024px) {
-      height:150px;
+      height:170px;
+    }
+    .img-desktop{
+      border-radius:6px;
+      @media (max-width:1024px) {
+        display:none;
+      }
+    }
+    .img-mobile{
+      border-radius:6px;
+      display:none;
+      @media (max-width:1024px) {
+        display:block;
+      }
     }
     .overlay{
       position:absolute;
@@ -117,6 +130,9 @@ const Container = styled.div`
       justify-content:flex-end;
       align-items:flex-start;
       padding:12px;
+      @media (max-width:1024px) {
+        display:none;
+      }
       p{
         color:white;
         font-size:14px;
@@ -148,17 +164,22 @@ const AboutContent = ({ textData }) => {
   return (
     <>
       <Container className="left-align">
-        <h2>The Short</h2>
+        <h2>{textData.the_short[0].text}</h2>
       </Container>
       <Container>
         <div className="container-70 pr">
           {RichText.render(textData.the_short_desc)}
-          <h3>Cool tech that i love and use:</h3>
-          <AboutTechStack/>
+          <h3>{textData.cool_tech_text[0].text}</h3>
+          <AboutTechStack textData={textData}/>
         </div>
         <div className="container-30 sec-img">
           <div className="desc-top-image">
-            <Image src={textData.feature_top_image_desktop.url} layout="fill"/>
+            <div className="img-desktop">
+              <Image src={textData.feature_top_image_desktop.url} layout="fill" objectFit='cover'/>
+            </div>
+            <div className="img-mobile">
+              <Image src={textData.feature_top_image_mobile.url} layout="fill" objectFit='cover' className="img-mobile"/>
+            </div>
             <div className="overlay">
               <p>Carlos Henriquez</p>
               <span>Front-End Developer / Meme degustator</span>
@@ -167,15 +188,10 @@ const AboutContent = ({ textData }) => {
         </div>
       </Container>
       <Container className="left-align">
-        <h2>The Long</h2>
+        <h2>{textData.the_long[0].text}</h2>
       </Container>
       <Container>
-        <div className="container-30">
-          <div className="desc-top-image">
-          </div>
-        </div>
-        <div className="container-70">
-        </div>
+        {RichText.render(textData.the_long_description)}
       </Container>
     </>
   )

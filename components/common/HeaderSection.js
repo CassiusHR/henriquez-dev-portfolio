@@ -147,7 +147,7 @@ const HeaderSection = ({ fullImg, previewImg, headerText, headerDescription }) =
   return (
     <HeaderContainer>
       <FeatureImageContainer initial={{opacity:0,y:-20}} animate={{opacity:1,y:0}} transition={{delay:0.5,duration:1, easing:'easeIn'}}>
-        <Image src={fullImg} priority={true} layout='fill' objectFit='cover' className="feature-image"/>
+        <Image src={fullImg} priority={true} layout='fill' objectFit='cover' className="feature-image" priority={true}/>
         <div className="text-container">
           <div className="feature-text"><h1>{headerText}</h1></div>
           <div className="feature-desc"><p>{headerDescription}</p></div>

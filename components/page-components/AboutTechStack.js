@@ -60,7 +60,7 @@ const StackDescription = styled.div`
   justify-content:space-between;
   align-items:center;
   z-index:10;
-  min-height:160px;
+  min-height:180px;
   @media (max-width:1024px) {
     min-height:200px;
   } 
@@ -98,7 +98,7 @@ const StackDescriptionContent = styled(motion.div)`
   }
 `
 
-const AboutTechStack = () => {
+const AboutTechStack = ({textData}) => {
   const [tech, setTech] = useState('JsLogo');
 
   const descHandler = (techName) => {
@@ -129,91 +129,91 @@ const AboutTechStack = () => {
           {tech === 'JsLogo' && 
           <StackDescriptionContent initial={{opacity:0,x:-5}} animate={{opacity:1,x:0}} exit={{opacity:0,x:5}} transition={{ duration:0.5}} key="JsLogo">
             <h3>Javascript</h3>
-            <p>Vanilla JS, modern ES6+ features and methods, design patterns and all the cool stuff which i use to optimize my applications.</p>
+            <p>{textData.tech_stack[0].description1[0].text}</p>
             <JsLogo/>
           </StackDescriptionContent>}
           {tech === 'JamstackLogo' && 
           <StackDescriptionContent initial={{opacity:0,x:-5}} animate={{opacity:1,x:0}} exit={{opacity:0,x:5}} transition={{ duration:0.5}} key="jamstack">
             <h3>Jamstack</h3>
-            <p>Javascript - API - Markup architecture goodness, my favorite trifecta.</p>
+            <p>{textData.tech_stack[1].description1[0].text}</p>
             <JamstackLogo/>
           </StackDescriptionContent>}
           {tech === 'GraphqlLogo' && 
           <StackDescriptionContent initial={{opacity:0,x:-5}} animate={{opacity:1,x:0}} exit={{opacity:0,x:5}} transition={{ duration:0.5}} key="graphqllogo">
             <h3>GraphQL</h3>
-            <p>Love this query language. I've been using it on my gatsby projects and it's sweet.</p>
+            <p>{textData.tech_stack[2].description1[0].text}</p>
             <GraphqlLogo/>
           </StackDescriptionContent>}
           {tech === 'ReactLogo' && 
           <StackDescriptionContent initial={{opacity:0,x:-5}} animate={{opacity:1,x:0}} exit={{opacity:0,x:5}} transition={{ duration:0.5}} key="reactlogo">
             <h3>React</h3>
-            <p>My main battle horse, i love working with React and seeing how now everything is possible thanks to JSX.</p>
+            <p>{textData.tech_stack[3].description1[0].text}</p>
             <ReactLogo/>
           </StackDescriptionContent>}
           {tech === 'NextLogo' && 
           <StackDescriptionContent initial={{opacity:0,x:-5}} animate={{opacity:1,x:0}} exit={{opacity:0,x:5}} transition={{ duration:0.5}} key="Nextlogo">
             <h3>Next JS</h3>
-            <p>This sweet framework gives my apps superpowers with it's SSR/SSG capabilities, Headless CMS connectivity and self ran APIs, it's BONKERS.</p>
+            <p>{textData.tech_stack[4].description1[0].text}</p>
             <NextLogo/>
           </StackDescriptionContent>}
           {tech === 'GatsbyLogo' && 
           <StackDescriptionContent initial={{opacity:0,x:-5}} animate={{opacity:1,x:0}} exit={{opacity:0,x:5}} transition={{ duration:0.5}} key="Gatsbylogo">
             <h3>Gatsby</h3>
-            <p>I love this Static Site Generator. It's well populated plugin ecosystem is delicious (And Gatsby-Image rocks).</p>
+            <p>{textData.tech_stack[5].description1[0].text}</p>
             <GatsbyLogo/>
           </StackDescriptionContent>}
           {tech === 'VueLogo' && 
           <StackDescriptionContent initial={{opacity:0,x:-5}} animate={{opacity:1,x:0}} exit={{opacity:0,x:5}} transition={{ duration:0.5}} key="Vuelogo">
             <h3>Vue</h3>
-            <p>Loving Vue 3 approach with it's composition API together with directives (still love react more lol).</p>
+            <p>{textData.tech_stack[6].description1[0].text}</p>
             <VueLogo/>
           </StackDescriptionContent>}
           {tech === 'NuxtLogo' && 
           <StackDescriptionContent initial={{opacity:0,x:-5}} animate={{opacity:1,x:0}} exit={{opacity:0,x:5}} transition={{ duration:0.5}} key="Nuxtlogo">
             <h3>Nuxt</h3>
-            <p>Pretty cool SSR solution for Vue, really easy to learn and easy to set up.</p>
+            <p>{textData.tech_stack[7].description1[0].text}</p>
             <NuxtLogo/>
           </StackDescriptionContent>}
           {tech === 'GridsomeLogo' && 
           <StackDescriptionContent initial={{opacity:0,x:-5}} animate={{opacity:1,x:0}} exit={{opacity:0,x:5}} transition={{ duration:0.5}} key="Gridsomelogo">
             <h3>Gridsome</h3>
-            <p>Gatsby for Vue? Count me in!</p>
+            <p>{textData.tech_stack[8].description1[0].text}</p>
             <GridsomeLogo/>
           </StackDescriptionContent>}
           {tech === 'NetlifyLogo' && 
           <StackDescriptionContent initial={{opacity:0,x:-5}} animate={{opacity:1,x:0}} exit={{opacity:0,x:5}} transition={{ duration:0.5}} key="Netlifylogo">
             <h3>Netlify</h3>
-            <p>My go to solution to my SSG needs, CI/CD, form handling, cloud functions, analytics, its sweet!</p>
+            <p>{textData.tech_stack[9].description1[0].text}</p>
             <NetlifyLogo/>
           </StackDescriptionContent>}
           {tech === 'PrismicLogo' && 
           <StackDescriptionContent initial={{opacity:0,x:-5}} animate={{opacity:1,x:0}} exit={{opacity:0,x:5}} transition={{ duration:0.5}} key="Prismiclogo">
             <h3>Prismic</h3>
-            <p>My go-to solution for Headless CMS. It's free tier is sweet and you have unlimited locales baby!</p>
+            <p>{textData.tech_stack[10].description1[0].text}</p>
             <PrismicLogo/>
           </StackDescriptionContent>}
           {tech === 'GhostLogo' && 
           <StackDescriptionContent initial={{opacity:0,x:-5}} animate={{opacity:1,x:0}} exit={{opacity:0,x:5}} transition={{ duration:0.5}} key="Ghostlogo">
             <h3>Ghost</h3>
-            <p>Pretty cool self hosted CMS, goes really well with SSR/SSG framework integrations.</p>
+            <p>{textData.tech_stack[11].description1[0].text}</p>
             <GhostLogo/>
           </StackDescriptionContent>}
           {tech === 'VercelLogo' && 
           <StackDescriptionContent initial={{opacity:0,x:-5}} animate={{opacity:1,x:0}} exit={{opacity:0,x:5}} transition={{ duration:0.5}} key="Vercellogo">
             <h3>Vercel</h3>
-            <p>Netlify for NextJS lol. Still pretty damn sweet.</p>
+            <p>{textData.tech_stack[12].description1[0].text}</p>
             <VercelLogo/>
           </StackDescriptionContent>}
           {tech === 'FigmaLogo' && 
           <StackDescriptionContent initial={{opacity:0,x:-5}} animate={{opacity:1,x:0}} exit={{opacity:0,x:5}} transition={{ duration:0.5}} key="Figmalogo">
             <h3>Figma</h3>
-            <p>The modern product designer standarized tool, a must know for everyone now a days.</p>
+            <p>{textData.tech_stack[13].description1[0].text}</p>
             <FigmaLogo/>
           </StackDescriptionContent>}
           {tech === 'PhotoshopLogo' && 
           <StackDescriptionContent initial={{opacity:0,x:-5}} animate={{opacity:1,x:0}} exit={{opacity:0,x:5}} transition={{ duration:0.5}} key="Photoshoplogo">
             <h3>Photoshop</h3>
-            <p>I;ve always loved Photoshop, you can do so many things with it and it will never get old (even in the vector world we're living in now).</p>
+            <p>{textData.tech_stack[14].description1[0].text}</p>
             <PhotoshopLogo/>
           </StackDescriptionContent>}
         </AnimatePresence>
