@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import styled from 'styled-components'
 import Image from 'next/image'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 const HeaderContainer = styled.section`
   width:100%;
@@ -10,7 +10,7 @@ const HeaderContainer = styled.section`
   flex-direction:column;
   justify-content:flex-start;
 `
-const FeatureImageContainer = styled.div`
+const FeatureImageContainer = styled(motion.div)`
   width:100%;
   height:600px;
   overflow:hidden;
@@ -75,6 +75,7 @@ const FeatureImageContainer = styled.div`
           line-height:4rem;
         } 
         animation: text-anim 1s cubic-bezier(.77,0,.18,1) forwards;
+        animation-delay:0.5s;
         :after{
           content: '';
           position: absolute;
@@ -84,6 +85,7 @@ const FeatureImageContainer = styled.div`
           height: 100%;
           background: linear-gradient(45deg, #f3ec78, #af4261);
           animation: a-ltr-after 1s cubic-bezier(.77,0,.18,1) forwards;
+          animation-delay:0.5s;
           transform: translateX(-101%);
         }
       }
@@ -118,6 +120,7 @@ const FeatureImageContainer = styled.div`
           height: 100%;
           background: white;
           animation: a-ltr-after 1.5s cubic-bezier(.77,0,.18,1) forwards;
+          animation-delay:0.5s;
           transform: translateX(-101%);
         }
       }
@@ -141,11 +144,10 @@ const FeatureImageContainer = styled.div`
 
 const HeaderSection = ({ fullImg, previewImg, headerText, headerDescription }) => {
 
-
   return (
     <HeaderContainer>
-      <FeatureImageContainer>
-        <Image src={fullImg} priority={true} layout='fill' className="feature-image"/>
+      <FeatureImageContainer initial={{opacity:0,y:-20}} animate={{opacity:1,y:0}} transition={{delay:0.5,duration:1, easing:'easeIn'}}>
+        <Image src={fullImg} priority={true} layout='fill' objectFit='cover' className="feature-image"/>
         <div className="text-container">
           <div className="feature-text"><h1>{headerText}</h1></div>
           <div className="feature-desc"><p>{headerDescription}</p></div>

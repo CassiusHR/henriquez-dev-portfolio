@@ -158,7 +158,7 @@ const AboutContent = ({ textData }) => {
         </div>
         <div className="container-30 sec-img">
           <div className="desc-top-image">
-            <Image src={textData.feature_top_image_desktop.url} layout="fill" bjectFit="cover"/>
+            <Image src={textData.feature_top_image_desktop.url} layout="fill"/>
             <div className="overlay">
               <p>Carlos Henriquez</p>
               <span>Front-End Developer / Meme degustator</span>
