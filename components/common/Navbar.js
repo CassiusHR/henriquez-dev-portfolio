@@ -28,10 +28,12 @@ const NavBar = styled.nav`
     flex-direction:row;
     justify-content:center;
     align-items:center;
+    height:60px;
     .logo{
       position:absolute;
       left:0;
-      top:10px;
+      top:12px;
+      left:12px;
       max-width:40px;
     }
     ul{
@@ -141,8 +143,9 @@ const Navbar = ({ theme, switchTheme, menuLinks, altLangs, currentLang }) => {
             </ul>
           </motion.div>}
         </AnimatePresence>
+        <DarkModeToggler switchTheme={switchTheme} theme={theme}/>
       </div>
-      <DarkModeToggler switchTheme={switchTheme} theme={theme}/>
+      
     </NavBar>
   )
 }

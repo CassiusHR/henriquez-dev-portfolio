@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import styled from 'styled-components'
+import Image from 'next/image'
+import { motion, AnimatePresence } from 'framer-motion'
 
 const HeaderContainer = styled.section`
   width:100%;
@@ -138,9 +140,19 @@ const FeatureImageContainer = styled.div`
 `
 
 const HeaderSection = ({ fullImg, previewImg, headerText, headerDescription }) => {
+  const [loaded,setLoaded] = useState(false)
+  const image = useRef()
+
+  useEffect(() => {
+      if (image.current.complete) setLoaded(true)
+  }, [])
+
+  const handleLoad = () => setLoaded(true)
+
   return (
     <HeaderContainer>
       <FeatureImageContainer>
+        <Image src={fullImg} priority={true} onLoad={handleLoad} layout='fill' className="feature-image" ref={image}/>
         <div className="text-container">
           <div className="feature-text"><h1>{headerText}</h1></div>
           <div className="feature-desc"><p>{headerDescription}</p></div>

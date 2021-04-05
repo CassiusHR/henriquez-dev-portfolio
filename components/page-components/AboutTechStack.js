@@ -60,7 +60,7 @@ const StackDescription = styled.div`
   justify-content:space-between;
   align-items:center;
   z-index:10;
-  min-height:150px;
+  min-height:160px;
   @media (max-width:1024px) {
     min-height:200px;
   } 

@@ -13,7 +13,7 @@ const DarkModeContainer = styled.div`
   height:40px;
   width:80px;
   position:absolute;
-  right:5px;
+  right:12px;
   
   p{
     font-size:12px;
