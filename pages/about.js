@@ -18,6 +18,9 @@ const about = ({doc, menu, lang, preview, switchTheme, theme}) => {
       <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}>
         <Head>
           <title>Carlos Henriquez - About</title>
+          <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+          <meta property="og:title" content="Carlos Henriquez - About" key="title" />
+          <meta property="og:image" content={doc.data.header_image_full.url} key="page-image" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <HeaderSection fullImg={doc.data.header_image_full.url} previewImg={doc.data.header_image_small.url} headerText={doc.data.title[0].text} headerDescription={doc.data.description[0].text}/>
