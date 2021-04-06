@@ -1,9 +1,10 @@
 import React from 'react'
+import { RichText } from 'prismic-reactjs';
 
 const TextSlice = ({slice}) => {
   return (
     <div>
-      {console.log(slice)}
+      {RichText.render(slice.primary.content)}
     </div>
   )
 }

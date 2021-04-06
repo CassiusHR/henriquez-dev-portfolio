@@ -23,7 +23,6 @@ const post = ({post, menu, lang, preview, switchTheme, theme}) => {
           </Head>
           <HeaderSection fullImg={post.data.feature_image.url} previewImg="" headerText={post.data.title[0].text} headerDescription=""/>
           <ContentSection>
-            {console.log(post.data)}
             <SliceZone slices={post.data.body}/>
           </ContentSection>
         </motion.div>
