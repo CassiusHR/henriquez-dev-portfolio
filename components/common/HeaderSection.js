@@ -9,6 +9,7 @@ const HeaderContainer = styled.section`
   align-items:center;
   flex-direction:column;
   justify-content:flex-start;
+  z-index:0;
 `
 const FeatureImageContainer = styled(motion.div)`
   width:100%;
@@ -23,6 +24,7 @@ const FeatureImageContainer = styled(motion.div)`
     bottom:0;
     right:0;
     background:rgba(0,0,0,0.6);
+    z-index:0;
   }
   .feature-image {
     width:100%;
@@ -41,7 +43,7 @@ const FeatureImageContainer = styled(motion.div)`
     justify-content:flex-end;
     align-items:center;
     height:100%;
-    padding-bottom:200px;
+    transform:translateY(-200px);
     @media (max-width:1024px) {
       padding-left:24px;
       padding-right:24px;
@@ -53,6 +55,7 @@ const FeatureImageContainer = styled(motion.div)`
       flex-direction:column;
       justify-content:center;
       align-items:flex-start;
+      z-index:11;
       h1{
         display:inline-block;
         background-color: red;

@@ -1,6 +1,5 @@
 import '../styles/globals.css'
 import { useState } from 'react'
-import Layout from '../components/Layout'
 import { AnimatePresence } from 'framer-motion'
 import { ThemeProvider } from "styled-components"
 import dynamic from 'next/dynamic'
