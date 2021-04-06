@@ -19,6 +19,7 @@ export const customLink = (type, element, content) => (
   </Link>
 );
 
+
 // Client method to query documents from the Prismic repo
 
 export const Client = (req = null) =>

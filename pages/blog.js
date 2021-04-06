@@ -19,7 +19,7 @@ const about = ({doc, menu, lang, preview, switchTheme, theme}) => {
           <title>Carlos Henriquez - Blog</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <HeaderSection headerText={doc.data.title[0].text} headerDescription={doc.data.description[0].text}/>
+        <HeaderSection fullImg={doc.data.header_image_full.url} headerText={doc.data.title[0].text} headerDescription={doc.data.description[0].text}/>
         <ContentSection>
         </ContentSection>
       </motion.div>

@@ -12,22 +12,41 @@ module.exports = {
   // Manages links to internal Prismic documents
   // Modify as your project grows to handle any new routes you've made
   linkResolver: function(doc) {
-    if (doc.type !== 'homepage') {
-      return `${doc.lang}/${doc.uid}`;
+    
+    if (doc.type === 'post') {
+      return `/${doc.lang}/blog/${doc.uid}`;
     }
     if (doc.type === 'homepage') {
       return `/${doc.lang}`;
+    }
+    if (doc.type === 'about') {
+      return `/${doc.lang}/${doc.uid}`;
+    }
+    if (doc.type === 'work') {
+      return `/${doc.lang}/${doc.uid}`;
+    }
+    if (doc.type === 'blog') {
+      return `/${doc.lang}/${doc.uid}`;
     }
     return '/';
   },
 
   // Additional helper function for Next/Link component
   hrefResolver: function(doc) {
-    if (doc.type !== 'homepage') {
-      return `/${doc.lang}/${doc.uid}`;
+    if (doc.type === 'post') {
+      return `/${doc.lang}/blog/${doc.uid}`;
     }
     if (doc.type === 'homepage') {
       return `/${doc.lang}`;
+    }
+    if (doc.type === 'about') {
+      return `/${doc.lang}/${doc.uid}`;
+    }
+    if (doc.type === 'work') {
+      return `/${doc.lang}/${doc.uid}`;
+    }
+    if (doc.type === 'blog') {
+      return `/${doc.lang}/${doc.uid}`;
     }
     return '/';
   },
