@@ -11,6 +11,15 @@ import ContentSection from '../components/common/ContentSection'
 import Layout from '../components/Layout'
 import Footer from '../components/common/Footer'
 import PostCard from '../components/page-components/PostCard'
+import styled from 'styled-components'
+
+const CardsContainer = styled.div`
+  width:100%;
+  display:flex;
+  justify-content:flex-start;
+  align-items:center;
+  flex-flow: row wrap;
+`
 
 const about = ({posts, doc, menu, lang, preview, switchTheme, theme}) => {
 
@@ -23,9 +32,11 @@ const about = ({posts, doc, menu, lang, preview, switchTheme, theme}) => {
         </Head>
         <HeaderSection fullImg={doc.data.header_image_full.url} headerText={doc.data.title[0].text} headerDescription={doc.data.description[0].text}/>
         <ContentSection>
-          {posts.map((post)=>(
-            <PostCard post={post}/>
-          ))}
+          <CardsContainer>
+            {posts.map((post)=>(
+              <PostCard post={post}/>
+            ))}
+          </CardsContainer>
         </ContentSection>
       </motion.div>
       <Footer/>

@@ -5,8 +5,10 @@ import Link from 'next/link'
 import { hrefResolver } from '../../prismic-configuration'
 import formatDate from '../../utils/formatDate'
 
+
 const CardContainer = styled.div`
-  width:100%;
+  width:calc(50% - 12px);
+  margin:6px;
   display:flex;
   flex-direction:row;
   justify-content:center;
@@ -15,11 +17,15 @@ const CardContainer = styled.div`
   background: var(--cardBackground1);
   transition:background 0.8s ease;
   margin-bottom:12px;
+  margin-top:0px;
   border-radius:6px;
-  height:150px;
+  min-height:150px;
   overflow:hidden;
   position:relative;
   border: 1px solid var(--ThemeButtonOutline);
+  @media (max-width:1024px) {
+    width:100%;
+  }
   .text-content{
     width:60%;
     display:flex;
@@ -27,11 +33,11 @@ const CardContainer = styled.div`
     justify-content:flex-start;
     align-items:flex-start;
     height:100%;
-    padding:24px;
+    padding:12px 12px 44px 12px;
     a{
-      font-size:2rem;
-      line-height:2.1rem;
-      margin-bottom:12px;
+      font-size:1.9rem;
+      line-height:2rem;
+      margin-bottom:6px;
     }
     .date-container{
       display:flex;
@@ -39,7 +45,7 @@ const CardContainer = styled.div`
       justify-content:flex-start;
       align-items:center;
       position:absolute;
-      left:24px;
+      left:12px;
       bottom:12px;
       img{
         border-radius:50%;
@@ -71,7 +77,7 @@ const CardContainer = styled.div`
         background:var(--background);
         transition:background 0.5s ease;
         font-weight:100;
-        padding:5px 8px;
+        padding:3px 6px;
         border: 1px solid var(--ThemeButtonOutline);
         border-radius:6px;
         margin-right:6px;
@@ -113,8 +119,7 @@ const CardContainer = styled.div`
 
 const PostCard = ({post}) => {
   return (
-    
-        <CardContainer blurred={post.data.feature_image.url}>
+      <CardContainer blurred={post.data.feature_image.url}>
           <div className="text-content">
           <Link href={hrefResolver(post)} scroll={false} passHref>
             <a>{post.data.title[0].text}</a>
@@ -126,10 +131,9 @@ const PostCard = ({post}) => {
             <div className="tag-container">
               {post.tags.map((tag)=><span>{tag}</span>)}
             </div>
-            {console.log(post)}
           </div>
           <div className="img-content">
-            <Image src={post.data.feature_image.url} layout="fill" objectFit='cover' className="cacuca"/>
+            <Image src={ post.data.feature_image_small.url || post.data.feature_image.url} layout="fill" objectFit='cover' className="cacuca"/>
           </div>
         </CardContainer>
   )

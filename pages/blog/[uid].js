@@ -11,6 +11,7 @@ import Layout from '../../components/Layout'
 import Footer from '../../components/common/Footer'
 import SliceZone from '../../components/SliceZone'
 import { queryRepeatableDocuments } from '../../utils/queries'
+import formatDate from '../../utils/formatDate'
 
 const post = ({post, menu, lang, preview, switchTheme, theme}) => {
 
@@ -19,7 +20,12 @@ const post = ({post, menu, lang, preview, switchTheme, theme}) => {
       <Layout switchTheme={switchTheme} theme={theme} menuLinks={menu.data.menu_links} altLangs={post.alternate_languages} lang={lang}>
         <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}>
           <Head>
-            <title>Carlos Henriquez - Blog</title>
+            <title>Carlos Henriquez - {post.data.title[0].text}</title>
+            <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+            <meta property="og:title" content={`Henriquez.dev - ${post.data.title[0].text}`} key="title" />
+            <meta property="og:description" content={`Carlos Henríquez - ${formatDate(post.first_publication_date)}`} key="description" />
+            <meta property="og:image" content={post.data.feature_image_small.url || post.data.feature_image.url} key="page-image" />
+            <link rel="icon" href="/favicon.ico" />
           </Head>
           <HeaderSection fullImg={post.data.feature_image.url} previewImg="" headerText={post.data.title[0].text} headerDescription=""/>
           <ContentSection>
