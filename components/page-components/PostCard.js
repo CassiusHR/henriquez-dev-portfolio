@@ -54,8 +54,8 @@ const CardContainer = styled.div`
       }
       p{
         color: var(--text-color);
-        font-size:0.8rem;
-        line-height:0.8rem;
+        font-size:11px;
+        line-height:11px;
         margin:6px 0px;
         opacity:0.5;
         span{
