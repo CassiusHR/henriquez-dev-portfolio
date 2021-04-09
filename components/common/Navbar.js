@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Link from 'next/link'
 import { useRouter } from "next/router";
@@ -6,7 +6,7 @@ import DarkModeToggler from './DarkModeToggler'
 import { hrefResolver } from '../../prismic-configuration'
 import LanguageSwitcher from '../LanguageSwitcher'
 import Logo from '../../public/logo.svg'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useTransform, useViewportScroll } from 'framer-motion'
 
 const NavBar = styled.nav`
   display:flex;
@@ -17,9 +17,25 @@ const NavBar = styled.nav`
   height:60px;
   position:relative;
   position:fixed;
+  background: rgba(0,0,0,0);
   top:0;
   left:0;
   z-index:10;
+  .nav-overlay{
+    position:absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    background: var(--glassbg);
+    border-bottom: 1px solid var(--ThemeButtonOutline);
+    backdrop-filter: blur(20px);
+    opacity:0;
+    transition:opacity 0.7s ease-in-out;
+    &.active{
+      opacity:1;
+    }
+  }
   .nav-container{
     width:100%;
     max-width:1024px;
@@ -34,7 +50,7 @@ const NavBar = styled.nav`
       left:0;
       top:12px;
       left:12px;
-      max-width:40px;
+      max-width:32px;
     }
     ul{
       display:flex;
@@ -106,7 +122,12 @@ const NavBar = styled.nav`
 
 const Navbar = ({ theme, switchTheme, menuLinks, altLangs, currentLang }) => {
   const [ mobileToggle, setMobileToggle ] = useState(false)
+  const [ navScrollShow, setNavScrollShow ] = useState(false)
   const router = useRouter();
+  const { scrollYProgress } = useViewportScroll();
+  const yRange = useTransform(scrollYProgress, [0, 0.9], [0, 1]);
+
+  useEffect(() => yRange.onChange(v => setNavScrollShow(v > 0)), [yRange]);
 
   const closeMenu = () => {
     setMobileToggle(false)
@@ -114,6 +135,7 @@ const Navbar = ({ theme, switchTheme, menuLinks, altLangs, currentLang }) => {
 
   return (
     <NavBar>
+      <div className={navScrollShow ? 'nav-overlay active' : 'nav-overlay'}></div>
       <div className="nav-container">
         <Logo className="logo"/>
         <ul className="desk-nav">

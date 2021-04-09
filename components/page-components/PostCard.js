@@ -23,6 +23,9 @@ const CardContainer = styled.div`
   overflow:hidden;
   position:relative;
   border: 1px solid var(--ThemeButtonOutline);
+  &.first{
+    width:100%;
+  }
   @media (max-width:1024px) {
     width:100%;
   }
@@ -38,6 +41,10 @@ const CardContainer = styled.div`
       font-size:1.9rem;
       line-height:2rem;
       margin-bottom:6px;
+      @media (max-width:1024px) {
+        font-size:1.4rem;
+        line-height:1.6rem;
+      }
     }
     .date-container{
       display:flex;
@@ -117,9 +124,9 @@ const CardContainer = styled.div`
   }
 `
 
-const PostCard = ({post}) => {
+const PostCard = ({ post,index }) => {
   return (
-      <CardContainer blurred={post.data.feature_image.url}>
+      <CardContainer blurred={post.data.feature_image_small.url || post.data.feature_image.url} className={index === 0 ? 'first' : ''}>
           <div className="text-content">
           <Link href={hrefResolver(post)} scroll={false} passHref>
             <a>{post.data.title[0].text}</a>

@@ -8,6 +8,7 @@ const ContentWrapper = styled.div`
   justify-content: center;
   align-items:center;
   flex-direction:column;
+  content-visibility: auto;
   .description-box{
     background: var(--cardBackground2);
     transition: background 0.5s ease;
@@ -37,7 +38,6 @@ const ImageWrapper = styled.div`
 const ImageSlice = ({slice}) => {
   return (
     <ContentWrapper>
-      {console.log(slice)}
       <ImageWrapper>
         <Image src={slice.primary.image.url} layout="fill" objectFit="cover"/>
       </ImageWrapper>

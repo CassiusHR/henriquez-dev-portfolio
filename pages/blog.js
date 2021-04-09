@@ -33,8 +33,8 @@ const about = ({posts, doc, menu, lang, preview, switchTheme, theme}) => {
         <HeaderSection fullImg={doc.data.header_image_full.url} headerText={doc.data.title[0].text} headerDescription={doc.data.description[0].text}/>
         <ContentSection>
           <CardsContainer>
-            {posts.map((post)=>(
-              <PostCard post={post}/>
+            {posts.map((post,i)=>(
+              <PostCard post={post} index={i} key={`postcard-${i}`}/>
             ))}
           </CardsContainer>
         </ContentSection>
