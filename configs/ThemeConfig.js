@@ -9,7 +9,7 @@ export const lightTheme = {
   text: '#363537',
   toggleBorder: '#FFF',
   background: '#363537',
-  glassbg: 'rgba(255,255,255,0.2)',
+  glassbg: 'rgba(255,255,255,0.6)',
   themeButtonOutline: 'rgba(53,53,53,0.1)',
   navSelected:'#ececec',
   
@@ -26,7 +26,7 @@ export const darkTheme = {
   background: '#999',
   themeButtonOutline: 'rgba(250,250,250,0.1)',
   navSelected:'#302f30',
-  glassbg: 'rgba(54,53,55,0.2)',
+  glassbg: 'rgba(54,53,55,0.6)',
 }
 
 export const GlobalStyles = createGlobalStyle`

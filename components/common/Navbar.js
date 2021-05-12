@@ -16,7 +16,7 @@ const NavBar = styled.nav`
   width:100%;
   height:60px;
   position:relative;
-  position:fixed;
+  position:absolute;
   background: rgba(0,0,0,0);
   top:0;
   left:0;
@@ -29,9 +29,8 @@ const NavBar = styled.nav`
     right:0;
     background: var(--glassbg);
     border-bottom: 1px solid var(--ThemeButtonOutline);
-    backdrop-filter: blur(20px);
     opacity:0;
-    transition:opacity 0.7s ease-in-out;
+    transition:opacity 0.5s ease-in-out, background 0.5s ease;
     &.active{
       opacity:1;
     }
@@ -122,12 +121,7 @@ const NavBar = styled.nav`
 
 const Navbar = ({ theme, switchTheme, menuLinks, altLangs, currentLang }) => {
   const [ mobileToggle, setMobileToggle ] = useState(false)
-  const [ navScrollShow, setNavScrollShow ] = useState(false)
   const router = useRouter();
-  const { scrollYProgress } = useViewportScroll();
-  const yRange = useTransform(scrollYProgress, [0, 0.9], [0, 1]);
-
-  useEffect(() => yRange.onChange(v => setNavScrollShow(v > 0)), [yRange]);
 
   const closeMenu = () => {
     setMobileToggle(false)
@@ -135,7 +129,6 @@ const Navbar = ({ theme, switchTheme, menuLinks, altLangs, currentLang }) => {
 
   return (
     <NavBar>
-      <div className={navScrollShow ? 'nav-overlay active' : 'nav-overlay'}></div>
       <div className="nav-container">
         <Logo className="logo"/>
         <ul className="desk-nav">
