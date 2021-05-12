@@ -14,7 +14,9 @@ const DarkModeContainer = styled.div`
   width:80px;
   position:absolute;
   right:12px;
-  
+  @media (max-width:1024px) {
+    display:none;
+  }
   p{
     font-size:12px;
   }

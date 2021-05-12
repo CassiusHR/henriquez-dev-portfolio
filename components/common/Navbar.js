@@ -44,12 +44,66 @@ const NavBar = styled.nav`
     justify-content:center;
     align-items:center;
     height:60px;
+    button {
+      -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
+      background:none;
+      border:none;
+      outline:none;
+      width: 80px;
+      height: 80px;
+      z-index:99;
+      position:absolute;
+      right:7px;
+      display:none;
+      @media (max-width:1024px) {
+        display:block;
+      }
+      #icon {
+        width: 80px;
+        height: 80px;
+        cursor: pointer;
+        -webkit-transform: translate3d(0, 0, 0);
+        -moz-transform: translate3d(0, 0, 0);
+        -o-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+      }
+      path {
+        fill: none;
+        -webkit-transition: stroke-dashoffset 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25), stroke-dasharray 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25);
+        -moz-transition: stroke-dashoffset 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25), stroke-dasharray 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25);
+        -o-transition: stroke-dashoffset 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25), stroke-dasharray 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25);
+        -ms-transition: stroke-dashoffset 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25), stroke-dasharray 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25);
+        transition: stroke-dashoffset 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25), stroke-dasharray 0.5s cubic-bezier(0.25, -0.25, 0.75, 1.25);
+        stroke-width: 40px;
+        stroke-linecap: round;
+        stroke: #fff;
+        stroke-dashoffset: 0px;
+      }
+      path#top,
+      path#bottom {
+        stroke-dasharray: 240px 950px;
+      }
+      path#middle {
+        stroke-dasharray: 240px 240px;
+      }
+      .cross path#top,
+      .cross path#bottom {
+        stroke-dashoffset: -650px;
+        stroke-dashoffset: -650px;
+      }
+      .cross path#middle {
+        stroke-dashoffset: -115px;
+        stroke-dasharray: 1px 220px;
+      }
+    }
     .logo{
       position:absolute;
       left:0;
       top:12px;
       left:12px;
       max-width:32px;
+      z-index:99;
     }
     ul{
       display:flex;
@@ -61,7 +115,7 @@ const NavBar = styled.nav`
       height:100%;
       border-radius: 0px 0px 6px 6px;
       padding: 0px 15px;
-      transition: background 0.5s ease;
+      transition: background 0.5s ease;      
       &.desk-nav {
         @media (max-width:1024px) {
           display:none;
@@ -141,7 +195,6 @@ const Navbar = ({ theme, switchTheme, menuLinks, altLangs, currentLang }) => {
           ))}
           <LanguageSwitcher altLangs={altLangs} currentLang={currentLang} />
         </ul>
-        <button onClick={()=>setMobileToggle(!mobileToggle)}>Test</button>
         <AnimatePresence exitBeforeEnter>
           {mobileToggle && <motion.div key="mobile-nav" className="mobile-nav" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}>
             <ul>
@@ -155,10 +208,18 @@ const Navbar = ({ theme, switchTheme, menuLinks, altLangs, currentLang }) => {
                 </li>
               ))}
               <LanguageSwitcher altLangs={altLangs} currentLang={currentLang} />
+              <DarkModeToggler switchTheme={switchTheme} theme={theme}/>
             </ul>
           </motion.div>}
         </AnimatePresence>
         <DarkModeToggler switchTheme={switchTheme} theme={theme}/>
+        <button onClick={()=>setMobileToggle(!mobileToggle)}>
+          <svg id="icon" viewBox="0 0 800 600" className={mobileToggle ? 'cross' : ''}>
+            <path d="M300,220 C300,220 520,220 540,220 C740,220 640,540 520,420 C440,340 300,200 300,200" id="top"></path>
+            <path d="M300,320 L540,320" id="middle"></path>
+            <path d="M300,210 C300,210 520,210 540,210 C740,210 640,530 520,410 C440,330 300,190 300,190" id="bottom" transform="translate(480, 320) scale(1, -1) translate(-480, -318) "></path>
+          </svg>
+        </button>
       </div>
       
     </NavBar>
