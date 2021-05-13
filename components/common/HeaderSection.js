@@ -16,6 +16,9 @@ const FeatureImageContainer = styled(motion.div)`
   height:600px;
   overflow:hidden;
   position:relative;
+  @media (max-width:1024px) {
+    height:430px;
+  } 
   :after{
     position:absolute;
     content:'';
@@ -74,8 +77,8 @@ const FeatureImageContainer = styled(motion.div)`
         overflow:hidden;
         font-weight:700;
         @media (max-width:1024px) {
-          font-size:4rem;
-          line-height:4rem;
+          font-size:3rem;
+          line-height:3rem;
         } 
         animation: text-anim 1s cubic-bezier(.77,0,.18,1) forwards;
         animation-delay:0.5s;

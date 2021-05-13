@@ -14,7 +14,6 @@ const CardContainer = styled.div`
   justify-content:center;
   align-items:flex-start;
   padding:0px;
-  background: var(--cardBackground1);
   transition:background 0.8s ease;
   margin-bottom:12px;
   margin-top:0px;
@@ -23,6 +22,21 @@ const CardContainer = styled.div`
   overflow:hidden;
   position:relative;
   border: 1px solid var(--ThemeButtonOutline);
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 50%, var(--cardBackground1) 100%);
+  transition:background 0.5s ease;
+  z-index:0;
+  :after{
+    content:'';
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    background-image: url(${props=>props.blurred});
+    opacity:0.1;
+    filter: grayscale(100%);
+    z-index:1;
+  }
   &.first{
     width:100%;
   }
@@ -30,13 +44,14 @@ const CardContainer = styled.div`
     width:100%;
   }
   .text-content{
-    width:60%;
+    width:100%;
     display:flex;
     flex-direction:column;
     justify-content:flex-start;
     align-items:flex-start;
     height:100%;
     padding:12px 12px 44px 12px;
+    z-index:10;
     a{
       font-size:1.9rem;
       line-height:2rem;
@@ -139,9 +154,9 @@ const PostCard = ({ post,index }) => {
               {post.tags.map((tag)=><span>{tag}</span>)}
             </div>
           </div>
-          <div className="img-content">
+          {/* <div className="img-content">
             <Image src={ post.data.feature_image_small.url || post.data.feature_image.url} layout="fill" objectFit='cover' className="cacuca"/>
-          </div>
+          </div> */}
         </CardContainer>
   )
 }
