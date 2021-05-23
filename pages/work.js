@@ -9,6 +9,7 @@ import { motion } from 'framer-motion'
 import ContentSection from '../components/common/ContentSection'
 import Layout from '../components/Layout'
 import Footer from '../components/common/Footer'
+import WorkContent from '../components/page-components/WorkContent'
 
 const work = ({doc, menu, lang, preview, theme, switchTheme }) => {
   return (
@@ -20,6 +21,7 @@ const work = ({doc, menu, lang, preview, theme, switchTheme }) => {
         </Head>
         <HeaderSection fullImg={doc.data.full_image.url} previewImg={doc.data.small_image.url} headerText={doc.data.title[0].text} headerDescription={doc.data.description[0].text}/>
         <ContentSection>
+          <WorkContent/>
         </ContentSection>
       </motion.div>
       <Footer/>
