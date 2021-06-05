@@ -21,7 +21,7 @@ const about = ({doc, menu, lang, preview, switchTheme, theme}) => {
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
           <meta property="og:title" content={`Henriquez.dev - ${doc.data.title[0].text}`} key="title" />
           <meta property="og:description" content={doc.data.description[0].text} key="description" />
-          <meta property="og:image" content={doc.data.header_image_full.url} key="page-image" />
+          <meta property="og:image" content={doc.data.header_image_small.url} key="page-image" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <HeaderSection fullImg={doc.data.header_image_full.url} previewImg={doc.data.header_image_small.url} headerText={doc.data.title[0].text} headerDescription={doc.data.description[0].text}/>
