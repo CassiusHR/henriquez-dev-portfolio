@@ -15,6 +15,9 @@ const Home = ({doc, menu, lang, preview, setMenuLinks, theme, switchTheme}) =>{
       <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}>
         <Head>
           <title>Carlos Henriquez - Home</title>
+          <meta property="og:title" content={`Henriquez.dev - Home`} key="title" />
+          <meta property="og:description" content={`Welcome`} key="description" />
+          {/* <meta property="og:image" content={doc.data.small_image.url} key="page-image" /> */}
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <IndexHeader imgUrl={doc.data.body[0].primary.image.url}/>

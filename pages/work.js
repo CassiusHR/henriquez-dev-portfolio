@@ -20,6 +20,8 @@ const work = ({doc, menu, lang, preview, theme, switchTheme }) => {
           <meta property="og:title" content={`Henriquez.dev - ${doc.data.title[0].text}`} key="title" />
           <meta property="og:description" content={doc.data.description[0].text} key="description" />
           <meta property="og:image" content={doc.data.small_image.url} key="page-image" />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <HeaderSection fullImg={doc.data.full_image.url} previewImg={doc.data.small_image.url} headerText={doc.data.title[0].text} headerDescription={doc.data.description[0].text}/>

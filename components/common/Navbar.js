@@ -21,20 +21,6 @@ const NavBar = styled.nav`
   top:0;
   left:0;
   z-index:10;
-  .nav-overlay{
-    position:absolute;
-    top:0;
-    left:0;
-    bottom:0;
-    right:0;
-    background: var(--glassbg);
-    border-bottom: 1px solid var(--ThemeButtonOutline);
-    opacity:0;
-    transition:opacity 0.5s ease-in-out, background 0.5s ease;
-    &.active{
-      opacity:1;
-    }
-  }
   .nav-container{
     width:100%;
     max-width:1024px;
@@ -124,12 +110,17 @@ const NavBar = styled.nav`
       }
       li{
         margin:0 10px;
-        font-size:14px;
-        letter-spacing:2px;
+        font-size:12px;
+        border-radius:6px;
+        letter-spacing:2.5px;
         position:relative;
-        transition:opacity 0.3s ease;
+        transition:all 0.3s ease;
+        border: 1px solid rgba(255,255,255, 0);
+        opacity:0.6;
+        padding:6px 14px;
         &.selected{
-          opacity:0.5;
+          opacity:1;
+          border: 1px solid rgba(255,255,255, 0.1);
         }
         a{
           z-index:10;
@@ -143,8 +134,8 @@ const NavBar = styled.nav`
           -webkit-text-fill-color: unset; 
           -moz-background-clip: unset;
           -moz-text-fill-color: unset;
-          font-weight:700;
-          color: var(--text-color);
+          font-weight:400;
+          color: white;
           transition:color 0.3s ease;
         }
       }
@@ -192,7 +183,7 @@ const Navbar = ({ theme, switchTheme, menuLinks, altLangs, currentLang }) => {
           {menuLinks && menuLinks.map((link,i)=>(
             <li key={`menulink-${i}`} className={(`/${currentLang}${router.pathname}`) == hrefResolver(link.link) ? 'selected' : ''}>
               <Link href={hrefResolver(link.link)} scroll={false} passHref>
-                <a>{link.label[0].text}</a>
+                <a>{link.label[0].text.toUpperCase()}</a>
               </Link>
             </li>
           ))}

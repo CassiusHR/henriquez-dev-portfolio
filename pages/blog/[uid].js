@@ -25,6 +25,8 @@ const post = ({post, menu, lang, preview, switchTheme, theme}) => {
             <meta property="og:title" content={`Henriquez.dev - ${post.data.title[0].text}`} key="title" />
             <meta property="og:description" content={`Carlos Henríquez - ${formatDate(post.first_publication_date)}`} key="description" />
             <meta property="og:image" content={post.data.feature_image_small.url || post.data.feature_image.url} key="page-image" />
+            <meta property="og:image:width" content="1200" />
+            <meta property="og:image:height" content="630" />
             <link rel="icon" href="/favicon.ico" />
           </Head>
           <HeaderSection fullImg={post.data.feature_image.url} previewImg="" headerText={post.data.title[0].text} headerDescription=""/>
