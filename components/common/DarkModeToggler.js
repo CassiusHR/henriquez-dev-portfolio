@@ -1,29 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const DarkModeContainer = styled.div`
-  padding:5px;
-  border: 1px solid var(--ThemeButtonOutline);
-  border-radius:6px;
   display:flex;
-  flex-direction:row;
-  align-items:center;
-  justify-content:center;
-  height:40px;
-  width:80px;
-  position:absolute;
-  right:12px;
-  @media (max-width:1024px) {
-    display:none;
-  }
+  position:relative;
   p{
+    color:white;
+    position:absolute;
+    right:-35px;
+    top:20px;
     font-size:12px;
+    line-height:12px;
   }
 `
 
 const SwitchContainer = styled.div`
-transform:scale(0.5)translateX(9px);
+  transform:scale(0.5)translateX(9px);
     label {
       cursor: pointer;
       padding: 1rem;
@@ -187,14 +180,24 @@ transform:scale(0.5)translateX(9px);
 `
 
 const DarkModeToggler = ({ theme, switchTheme }) => {
+  const [langLoading, setLangLoading] = useState(false)
+
+  const handleLoading = () => {
+    setLangLoading(true)
+    switchTheme()
+    setTimeout(()=>{
+      setLangLoading(false)
+    },1000)
+  }
+  
   return (
     <DarkModeContainer>
       <AnimatePresence exitBeforeEnter initial={false}>
-      {theme === 'light' ? <motion.p initial={{opacity:0,y:-5}} animate={{opacity:0.6,y:0}} exit={{opacity:0,y:5}}  key='light-text'>Light</motion.p> : <motion.p initial={{opacity:0,y:-5}} animate={{opacity:0.6,y:0}} exit={{opacity:0,y:5}} key='dark-text'>Dark</motion.p>}
+      {langLoading ? <motion.p initial={{opacity:0,x:5}} animate={{opacity:0.6,x:0}} exit={{opacity:0,x:5}}  key='light-text'>{theme === 'light' ? 'Light' : 'Dark'}</motion.p> : ''}
       </AnimatePresence>
       <SwitchContainer>
         <label>
-          <input type="checkbox" onChange={switchTheme} defaultChecked={true}/>
+          <input type="checkbox" onChange={handleLoading} defaultChecked={true}/>
           <div className="planet">
           </div>
           <div className="elements">

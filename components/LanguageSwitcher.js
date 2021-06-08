@@ -1,53 +1,44 @@
 import Link from 'next/link';
 import { linkResolver, hrefResolver } from '../prismic-configuration';
 import styled from 'styled-components'
-import CL from '../public/CL.svg'
-import US from '../public/US.svg'
 
 const LangLink = styled.a`
   position:relative;
   display:flex;
-  :after{
-    content:"${props => props.currentLang === 'en-us' ? "Espanol" : "English"}";
-    position:absolute;
-    top:24px;
-    left:0px;
-    background:rgba(0,0,0,0.2);
-    color:rgba(250,250,250,0.6);
-    opacity:0;
-    font-size:10px;
-    pointer-events:none;
-    font-weight:100;
-    transition:all 0.3s ease;
-    letter-spacing: 1px;
-    padding:5px;
-    transform: translate3d(-13px, 5px, 0px);
-    border-radius:3px;
-  }
-  :hover:after{
+  background-color: unset;
+  background-image: unset;
+  background-size: unset;
+  background-repeat: unset;
+  background-clip: unset;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+  padding:6px 12px;
+  background:rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius:6px;
+  position:relative;
+  overflow:hidden;
+  .lang-text{
+    font-size:11px;
+    line-height: 11px;
+    letter-spacing:1px;
+    font-weight:200;
     opacity:1;
-    transform: translate3d(-13px, 0px, 0px);
-  }
-  svg{
-    width:24px;
-    height:18px;
-    border-radius:4px;
+    color:white;
   }
 `
 
 const AltLangs = ({ altLangs = [], currentLang }) =>
   altLangs.map((altLang) => {
     return (
-      <li className="language-switcher" key={altLang.id}>
-        <Link
-          locale={altLang.lang}
-          as={linkResolver(altLang)}
-          href={hrefResolver(altLang)}
-          passHref
-        >
-          <LangLink currentLang={currentLang}>{altLang.lang === 'en-us' ? <US/> : <CL/>}</LangLink>
-        </Link>
-      </li>
+      <Link
+        locale={altLang.lang}
+        as={linkResolver(altLang)}
+        href={hrefResolver(altLang)}
+        passHref
+      >
+        <LangLink currentLang={currentLang}>{altLang.lang === 'en-us' ? <div className='lang-text'>Espanol</div> : <div className='lang-text'>English</div>}</LangLink>
+      </Link>
     );
   });
 
