@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const DarkModeContainer = styled.div`
-  display:${props => props.isDesktop ? 'flex' : 'none'};
+  display:flex;
   position:relative;
   p{
     color:white;
@@ -12,6 +12,9 @@ const DarkModeContainer = styled.div`
     top:20px;
     font-size:12px;
     line-height:12px;
+  }
+  @media (max-width:768px) {
+    display:${props => props.isDesktop ? 'none' : 'flex'}
   }
 `
 

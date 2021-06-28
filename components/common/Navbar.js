@@ -204,11 +204,11 @@ const Navbar = ({ theme, switchTheme, menuLinks, altLangs, currentLang }) => {
                 </li>
               ))}
               <LanguageSwitcher altLangs={altLangs} currentLang={currentLang} inhome={true} isDesktop={false}/>
-              <DarkModeToggler switchTheme={switchTheme} theme={theme} isDesktop={true}/>
+              <DarkModeToggler switchTheme={switchTheme} theme={theme} isDesktop={false}/>
             </ul>
           </motion.div>}
         </AnimatePresence>
-        <DarkModeToggler switchTheme={switchTheme} theme={theme} isDesktop={false}/>
+        <DarkModeToggler switchTheme={switchTheme} theme={theme} isDesktop={true}/>
         <button onClick={()=>setMobileToggle(!mobileToggle)}>
           <svg id="icon" viewBox="0 0 800 600" className={mobileToggle ? 'cross' : ''}>
             <path d="M300,220 C300,220 520,220 540,220 C740,220 640,540 520,420 C440,340 300,200 300,200" id="top"></path>

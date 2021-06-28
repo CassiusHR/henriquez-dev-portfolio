@@ -29,13 +29,14 @@ const LangLink = styled.a`
 `
 
 const AltLangs = ({ altLangs = [], currentLang, inhome, isDesktop }) =>
-  altLangs.map((altLang) => {
+  altLangs.map((altLang,i) => {
     return (
       <Link
         locale={altLang.lang}
         as={linkResolver(altLang)}
         href={hrefResolver(altLang)}
         passHref
+        key={`lang-${i}`}
       >
         <LangLink currentLang={currentLang} inhome={inhome} title={altLang.lang === 'en-us' ? 'Switch to english' : 'Cambiar a español'}>{altLang.lang === 'en-us' ? <div className='lang-text'>Español</div> : <div className='lang-text'>English</div>}</LangLink>
       </Link>

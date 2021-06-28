@@ -31,7 +31,7 @@ const post = ({post, menu, lang, preview, switchTheme, theme}) => {
             <meta name="keywords" content="HTML, CSS, JavaScript, Web development, React, NextJS, Jamstack, Headless CMS" />
             <meta name="author" content="Carlos Henriquez" />
             <meta name="description" content={`Henriquez.dev - ${post.data.title[0].text}`} />
-            <link rel="icon" href="/favicon.ico" />
+            <link rel="icon" href="/favicon.png" type="image/png"/>
           </Head>
           <HeaderSection fullImg={post.data.feature_image.url} previewImg="" headerText={post.data.title[0].text} headerDescription=""/>
           <ContentSection>

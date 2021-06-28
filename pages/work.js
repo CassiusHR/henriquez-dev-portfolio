@@ -25,7 +25,7 @@ const work = ({doc, menu, lang, preview, theme, switchTheme }) => {
           <meta name="keywords" content="HTML, CSS, JavaScript, Web development, React, NextJS, Jamstack, Headless CMS" />
           <meta name="author" content="Carlos Henriquez" />
           <meta name="description" content={`Henriquez.dev Work`} />
-          <link rel="icon" href="/favicon.ico" />
+          <link rel="icon" href="/favicon.png" type="image/png"/>
         </Head>
         <HeaderSection fullImg={doc.data.full_image.url} previewImg={doc.data.small_image.url} headerText={doc.data.title[0].text} headerDescription={doc.data.description[0].text}/>
         <ContentSection>

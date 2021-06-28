@@ -22,7 +22,7 @@ const Home = ({doc, menu, lang, preview, setMenuLinks, theme, switchTheme}) =>{
           <meta name="author" content="Carlos Henriquez" />
           <meta name="description" content={`Welcome to Henriquez.dev`} />
           {/* <meta property="og:image" content={doc.data.small_image.url} key="page-image" /> */}
-          <link rel="icon" href="/favicon.ico" />
+          <link rel="icon" href="/favicon.png" type="image/png"/>
         </Head>
         <IndexHeader imgUrl={doc.data.body[0].primary.image.url}/>
       </motion.div>

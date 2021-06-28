@@ -151,7 +151,7 @@ const PostCard = ({ post,index }) => {
               <p>Carlos Henríquez - <span>{formatDate(post.first_publication_date)}</span></p>
             </div>
             <div className="tag-container">
-              {post.tags.map((tag)=><span>{tag}</span>)}
+              {post.tags.map((tag,i)=><span key={`tag-${i}`}>{tag}</span>)}
             </div>
           </div>
           {/* <div className="img-content">

@@ -27,7 +27,7 @@ const about = ({doc, menu, lang, preview, switchTheme, theme}) => {
           <meta property="og:image" content={doc.data.header_image_small.url} key="page-image" />
           <meta property="og:image:width" content="1200" />
           <meta property="og:image:height" content="630" />
-          <link rel="icon" href="/favicon.ico" />
+          <link rel="icon" href="/favicon.png" type="image/png"/>
         </Head>
         <HeaderSection fullImg={doc.data.header_image_full.url} previewImg={doc.data.header_image_small.url} headerText={doc.data.title[0].text} headerDescription={doc.data.description[0].text}/>
         <ContentSection>
