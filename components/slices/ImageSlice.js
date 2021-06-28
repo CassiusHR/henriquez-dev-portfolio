@@ -39,7 +39,7 @@ const ImageSlice = ({slice}) => {
   return (
     <ContentWrapper>
       <ImageWrapper>
-        <Image src={slice.primary.image.url} layout="fill" objectFit="cover"/>
+        <Image src={slice.primary.image.url} layout="fill" objectFit="cover" blurDataURL="placeholder.jpg"/>
       </ImageWrapper>
       <div className="description-box">
         <p>{slice.primary.image_description[0].text}</p>

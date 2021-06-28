@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const DarkModeContainer = styled.div`
-  display:flex;
+  display:${props => props.isDesktop ? 'flex' : 'none'};
   position:relative;
   p{
     color:white;
@@ -179,7 +179,7 @@ const SwitchContainer = styled.div`
   }
 `
 
-const DarkModeToggler = ({ theme, switchTheme }) => {
+const DarkModeToggler = ({ theme, switchTheme, isDesktop }) => {
   const [langLoading, setLangLoading] = useState(false)
 
   const handleLoading = () => {
@@ -191,7 +191,7 @@ const DarkModeToggler = ({ theme, switchTheme }) => {
   }
   
   return (
-    <DarkModeContainer>
+    <DarkModeContainer isDesktop={isDesktop}>
       <AnimatePresence exitBeforeEnter initial={false}>
       {langLoading ? <motion.p initial={{opacity:0,x:5}} animate={{opacity:0.6,x:0}} exit={{opacity:0,x:5}}  key='light-text'>{theme === 'light' ? 'Light' : 'Dark'}</motion.p> : ''}
       </AnimatePresence>

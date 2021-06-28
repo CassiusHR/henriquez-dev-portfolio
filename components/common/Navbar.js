@@ -135,7 +135,7 @@ const NavBar = styled.nav`
           -moz-background-clip: unset;
           -moz-text-fill-color: unset;
           font-weight:400;
-          color: white;
+          color: ${props => props.inhome ? 'var(--text-color)': 'white'};
           transition:color 0.3s ease;
         }
       }
@@ -157,6 +157,8 @@ const NavBar = styled.nav`
           margin:10px 0px;
           a{
             font-size:3rem;
+            color:var(--text-color);
+            transition:color 0.3s ease;
           }
         }
       }
@@ -174,7 +176,7 @@ const Navbar = ({ theme, switchTheme, menuLinks, altLangs, currentLang }) => {
   }
 
   return (
-    <NavBar>
+    <NavBar inhome={(`/${currentLang}${router.pathname}`) === (`/${currentLang}/` || '/') ? true : false}>
       <div className="nav-container">
         <Link href={`/${currentLang}`} passHref>
           <Logo className="logo"/>
@@ -187,7 +189,7 @@ const Navbar = ({ theme, switchTheme, menuLinks, altLangs, currentLang }) => {
               </Link>
             </li>
           ))}
-          <LanguageSwitcher altLangs={altLangs} currentLang={currentLang} />
+          <LanguageSwitcher altLangs={altLangs} currentLang={currentLang} inhome={(`/${currentLang}${router.pathname}`) === (`/${currentLang}/` || '/') ? true : false}/>
         </ul>
         <AnimatePresence exitBeforeEnter>
           {mobileToggle && <motion.div key="mobile-nav" className="mobile-nav" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}>
@@ -201,12 +203,12 @@ const Navbar = ({ theme, switchTheme, menuLinks, altLangs, currentLang }) => {
                   </Link>
                 </li>
               ))}
-              <LanguageSwitcher altLangs={altLangs} currentLang={currentLang} />
-              <DarkModeToggler switchTheme={switchTheme} theme={theme}/>
+              <LanguageSwitcher altLangs={altLangs} currentLang={currentLang} inhome={true} isDesktop={false}/>
+              <DarkModeToggler switchTheme={switchTheme} theme={theme} isDesktop={true}/>
             </ul>
           </motion.div>}
         </AnimatePresence>
-        <DarkModeToggler switchTheme={switchTheme} theme={theme}/>
+        <DarkModeToggler switchTheme={switchTheme} theme={theme} isDesktop={false}/>
         <button onClick={()=>setMobileToggle(!mobileToggle)}>
           <svg id="icon" viewBox="0 0 800 600" className={mobileToggle ? 'cross' : ''}>
             <path d="M300,220 C300,220 520,220 540,220 C740,220 640,540 520,420 C440,340 300,200 300,200" id="top"></path>

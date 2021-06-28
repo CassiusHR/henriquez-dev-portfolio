@@ -14,7 +14,7 @@ const LangLink = styled.a`
   -webkit-text-fill-color: unset;
   padding:6px 12px;
   background:rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid ${props => props.inhome ? 'rgba(0,0,0,0.2)' : 'rgba(255,255,255,0.2)'};
   border-radius:6px;
   position:relative;
   overflow:hidden;
@@ -24,11 +24,11 @@ const LangLink = styled.a`
     letter-spacing:1px;
     font-weight:200;
     opacity:1;
-    color:white;
+    color:${props => props.inhome ? 'var(--text-color)' : 'white'};
   }
 `
 
-const AltLangs = ({ altLangs = [], currentLang }) =>
+const AltLangs = ({ altLangs = [], currentLang, inhome, isDesktop }) =>
   altLangs.map((altLang) => {
     return (
       <Link
@@ -37,11 +37,11 @@ const AltLangs = ({ altLangs = [], currentLang }) =>
         href={hrefResolver(altLang)}
         passHref
       >
-        <LangLink currentLang={currentLang}>{altLang.lang === 'en-us' ? <div className='lang-text'>Espanol</div> : <div className='lang-text'>English</div>}</LangLink>
+        <LangLink currentLang={currentLang} inhome={inhome} title={altLang.lang === 'en-us' ? 'Switch to english' : 'Cambiar a español'}>{altLang.lang === 'en-us' ? <div className='lang-text'>Español</div> : <div className='lang-text'>English</div>}</LangLink>
       </Link>
     );
   });
 
-const LanguageSwitcher = ({ altLangs, currentLang }) => <AltLangs altLangs={altLangs} currentLang={currentLang}/>;
+const LanguageSwitcher = ({ altLangs, currentLang, inhome, isDesktop }) => <AltLangs altLangs={altLangs} currentLang={currentLang} inhome={inhome}/>;
 
 export default LanguageSwitcher;

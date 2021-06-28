@@ -36,6 +36,7 @@ const IndexContainer = styled.section`
       width:100%;
       height:60px;
       background:var(--background);
+      transition:background 0.5s ease;
       z-index:100;
       border-bottom:1px solid var(--cardBackground2);
     }
@@ -102,7 +103,7 @@ const IndexBox = styled.div`
         animation-name: slide-icon;
         animation-timing-function: cubic-bezier(0.85, 0, 0.15, 1);
         animation-duration: 1s;
-        animation-delay:2.6s;
+        animation-delay:2.8s;
         animation-fill-mode: forwards;
         animation-iteration-count: 1;
         transform:translateX(20%);
@@ -111,7 +112,7 @@ const IndexBox = styled.div`
           animation-delay:3s;
         }
         &.icon-3{
-          animation-delay:3.4s;
+          animation-delay:3.2s;
         }
       }
     }
@@ -121,7 +122,7 @@ const IndexBox = styled.div`
     font-weight:400;
     font-size:2.2rem;
     @media (max-width:768px) {
-      font-size:2rem;
+      font-size:1rem;
     } 
   }
   &.img-box{
