@@ -15,8 +15,12 @@ const Home = ({doc, menu, lang, preview, setMenuLinks, theme, switchTheme}) =>{
       <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}>
         <Head>
           <title>Carlos Henriquez - Home</title>
+          <meta charSet="utf-8" />
           <meta property="og:title" content={`Henriquez.dev - Home`} key="title" />
           <meta property="og:description" content={`Welcome`} key="description" />
+          <meta name="keywords" content="HTML, CSS, JavaScript, Web development, React, NextJS, Jamstack, Headless CMS" />
+          <meta name="author" content="Carlos Henriquez" />
+          <meta name="description" content={`Welcome to Henriquez.dev`} />
           {/* <meta property="og:image" content={doc.data.small_image.url} key="page-image" /> */}
           <link rel="icon" href="/favicon.ico" />
         </Head>

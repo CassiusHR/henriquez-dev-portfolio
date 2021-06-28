@@ -21,6 +21,9 @@ const about = ({doc, menu, lang, preview, switchTheme, theme}) => {
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
           <meta property="og:title" content={`Henriquez.dev - ${doc.data.title[0].text}`} key="title" />
           <meta property="og:description" content={doc.data.description[0].text} key="description" />
+          <meta name="description" content={doc.data.description[0].text} />
+          <meta name="keywords" content="HTML, CSS, JavaScript, Web development, React, NextJS, Jamstack, Headless CMS" />
+          <meta name="author" content="Carlos Henriquez" />
           <meta property="og:image" content={doc.data.header_image_small.url} key="page-image" />
           <meta property="og:image:width" content="1200" />
           <meta property="og:image:height" content="630" />

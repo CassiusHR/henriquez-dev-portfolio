@@ -21,12 +21,16 @@ const post = ({post, menu, lang, preview, switchTheme, theme}) => {
         <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}>
           <Head>
             <title>Carlos Henriquez - {post.data.title[0].text}</title>
+            <meta charSet="utf-8" />
             <meta name="viewport" content="initial-scale=1.0, width=device-width" />
             <meta property="og:title" content={`Henriquez.dev - ${post.data.title[0].text}`} key="title" />
             <meta property="og:description" content={`Carlos Henríquez - ${formatDate(post.first_publication_date)}`} key="description" />
             <meta property="og:image" content={post.data.feature_image_small.url || post.data.feature_image.url} key="page-image" />
             <meta property="og:image:width" content="1200" />
             <meta property="og:image:height" content="630" />
+            <meta name="keywords" content="HTML, CSS, JavaScript, Web development, React, NextJS, Jamstack, Headless CMS" />
+            <meta name="author" content="Carlos Henriquez" />
+            <meta name="description" content={`Henriquez.dev - ${post.data.title[0].text}`} />
             <link rel="icon" href="/favicon.ico" />
           </Head>
           <HeaderSection fullImg={post.data.feature_image.url} previewImg="" headerText={post.data.title[0].text} headerDescription=""/>

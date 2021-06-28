@@ -28,6 +28,12 @@ const about = ({posts, doc, menu, lang, preview, switchTheme, theme}) => {
       <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}>
         <Head>
           <title>Carlos Henriquez - Blog</title>
+          <meta charSet="utf-8" />
+          <meta property="og:title" content={`Henriquez.dev - Blog`} key="title" />
+          <meta property="og:description" content={`Blog`} key="description" />
+          <meta name="keywords" content="HTML, CSS, JavaScript, Web development, React, NextJS, Jamstack, Headless CMS" />
+          <meta name="author" content="Carlos Henriquez" />
+          <meta name="description" content={`Henriquez.dev Blog`} />
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <HeaderSection fullImg={doc.data.header_image_full.url} headerText={doc.data.title[0].text} headerDescription={doc.data.description[0].text}/>
