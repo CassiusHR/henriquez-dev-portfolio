@@ -22,7 +22,7 @@ const CardsContainer = styled.div`
 `
 
 const about = ({posts, doc, menu, lang, preview, switchTheme, theme}) => {
-
+  
   return (
     <Layout switchTheme={switchTheme} theme={theme} menuLinks={menu.data.menu_links} altLangs={doc.alternate_languages} lang={lang}>
       <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}>

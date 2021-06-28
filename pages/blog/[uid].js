@@ -14,6 +14,9 @@ import { queryRepeatableDocuments } from '../../utils/queries'
 import formatDate from '../../utils/formatDate'
 
 const post = ({post, menu, lang, preview, switchTheme, theme}) => {
+  useEffect(()=>{
+    if (window) window.scrollTo({top: 0, behavior: 'smooth'});
+  },[])
 
   if (post && post.data) {
     return (
