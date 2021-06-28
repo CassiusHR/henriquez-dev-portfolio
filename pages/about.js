@@ -17,6 +17,7 @@ const about = ({doc, menu, lang, preview, switchTheme, theme}) => {
     <Layout switchTheme={switchTheme} theme={theme} menuLinks={menu.data.menu_links} altLangs={doc.alternate_languages} lang={lang}>
       <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}>
         <Head>
+          <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
           <title>Carlos Henriquez - About</title>
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
           <meta property="og:title" content={`Henriquez.dev - ${doc.data.title[0].text}`} key="title" />

@@ -20,8 +20,8 @@ const post = ({post, menu, lang, preview, switchTheme, theme}) => {
       <Layout switchTheme={switchTheme} theme={theme} menuLinks={menu.data.menu_links} altLangs={post.alternate_languages} lang={lang}>
         <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}>
           <Head>
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
             <title>Carlos Henriquez - {post.data.title[0].text}</title>
-            <meta charSet="utf-8" />
             <meta name="viewport" content="initial-scale=1.0, width=device-width" />
             <meta property="og:title" content={`Henriquez.dev - ${post.data.title[0].text}`} key="title" />
             <meta property="og:description" content={`Carlos Henríquez - ${formatDate(post.first_publication_date)}`} key="description" />

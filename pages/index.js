@@ -14,8 +14,8 @@ const Home = ({doc, menu, lang, preview, setMenuLinks, theme, switchTheme}) =>{
     <Layout switchTheme={switchTheme} theme={theme} menuLinks={menu.data.menu_links} altLangs={doc.alternate_languages} lang={lang}>
       <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}>
         <Head>
+          <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
           <title>Carlos Henriquez - Home</title>
-          <meta charSet="utf-8" />
           <meta property="og:title" content={`Henriquez.dev - Home`} key="title" />
           <meta property="og:description" content={`Welcome`} key="description" />
           <meta name="keywords" content="HTML, CSS, JavaScript, Web development, React, NextJS, Jamstack, Headless CMS" />
