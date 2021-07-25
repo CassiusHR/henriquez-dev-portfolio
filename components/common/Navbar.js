@@ -39,7 +39,8 @@ const NavBar = styled.nav`
       height: 80px;
       z-index:99;
       position:absolute;
-      right:7px;
+      right: -7px;
+      top: -13px;
       display:none;
       @media (max-width:1024px) {
         display:block;

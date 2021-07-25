@@ -122,7 +122,7 @@ const IndexBox = styled.div`
     font-weight:400;
     font-size:2.2rem;
     @media (max-width:768px) {
-      font-size:1rem;
+      font-size:0.9rem;
     } 
   }
   &.img-box{
