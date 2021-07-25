@@ -10,26 +10,14 @@ import ContentSection from '../components/common/ContentSection'
 import Layout from '../components/Layout'
 import AboutContent from '../components/page-components/AboutContent'
 import Footer from '../components/common/Footer'
+import SeoMetaTag from '../utils/meta-tags'
 
-const about = ({doc, menu, lang, preview, switchTheme, theme}) => {
+const about = ({doc, menu, lang, preview, switchTheme, theme, routeString}) => {
 
   return (
     <Layout switchTheme={switchTheme} theme={theme} menuLinks={menu.data.menu_links} altLangs={doc.alternate_languages} lang={lang}>
       <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}>
-        <Head>
-          <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-          <title>Carlos Henriquez - About</title>
-          <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-          <meta property="og:title" content={`Henriquez.dev - ${doc.data.title[0].text}`} key="title" />
-          <meta property="og:description" content={doc.data.description[0].text} key="description" />
-          <meta name="description" content={doc.data.description[0].text} />
-          <meta name="keywords" content="HTML, CSS, JavaScript, Web development, React, NextJS, Jamstack, Headless CMS" />
-          <meta name="author" content="Carlos Henriquez" />
-          <meta property="og:image" content={doc.data.header_image_small.url} key="page-image" />
-          <meta property="og:image:width" content="1200" />
-          <meta property="og:image:height" content="630" />
-          <link rel="icon" href="/favicon.png" type="image/png"/>
-        </Head>
+        <SeoMetaTag lang={lang} routeString={routeString} seoTitle={doc.data.title[0].text} seoDescription={doc.data.description[0].text} seoOgImage={doc.data.og_image.url}/>
         <HeaderSection fullImg={doc.data.header_image_full.url} previewImg={doc.data.header_image_small.url} headerText={doc.data.title[0].text} headerDescription={doc.data.description[0].text}/>
         <ContentSection>
           <AboutContent textData={doc.data}/>

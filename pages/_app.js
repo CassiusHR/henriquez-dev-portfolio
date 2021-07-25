@@ -27,7 +27,7 @@ function MyApp({ Component, pageProps, router }) {
         <GlobalStyles/>
           <TopProgressBar />
           <AnimatePresence exitBeforeEnter>
-            <Component {...pageProps} switchTheme={toggleTheme} theme={theme} key={router.route} />
+            <Component {...pageProps} switchTheme={toggleTheme} theme={theme} key={router.route} routeString={router.route} />
           </AnimatePresence>
         </GlobalContextProvider>
       </ThemeProvider>

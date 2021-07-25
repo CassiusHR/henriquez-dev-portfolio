@@ -189,19 +189,19 @@ const AboutTechStack = ({textData}) => {
           {tech === 'PrismicLogo' && 
           <StackDescriptionContent initial={{opacity:0,x:-5}} animate={{opacity:1,x:0}} exit={{opacity:0,x:5}} transition={{ duration:0.5}} key="Prismiclogo">
             <h3>Prismic</h3>
-            <p>{textData.tech_stack[10].description1[0].text}</p>
+            <p>{textData.tech_stack[11].description1[0].text}</p>
             <PrismicLogo/>
           </StackDescriptionContent>}
           {tech === 'GhostLogo' && 
           <StackDescriptionContent initial={{opacity:0,x:-5}} animate={{opacity:1,x:0}} exit={{opacity:0,x:5}} transition={{ duration:0.5}} key="Ghostlogo">
             <h3>Ghost</h3>
-            <p>{textData.tech_stack[11].description1[0].text}</p>
+            <p>{textData.tech_stack[12].description1[0].text}</p>
             <GhostLogo/>
           </StackDescriptionContent>}
           {tech === 'VercelLogo' && 
           <StackDescriptionContent initial={{opacity:0,x:-5}} animate={{opacity:1,x:0}} exit={{opacity:0,x:5}} transition={{ duration:0.5}} key="Vercellogo">
             <h3>Vercel</h3>
-            <p>{textData.tech_stack[12].description1[0].text}</p>
+            <p>{textData.tech_stack[10].description1[0].text}</p>
             <VercelLogo/>
           </StackDescriptionContent>}
           {tech === 'FigmaLogo' && 

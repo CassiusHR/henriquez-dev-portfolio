@@ -12,6 +12,7 @@ import Layout from '../components/Layout'
 import Footer from '../components/common/Footer'
 import PostCard from '../components/page-components/PostCard'
 import styled from 'styled-components'
+import SeoMetaTag from '../utils/meta-tags'
 
 const CardsContainer = styled.div`
   width:100%;
@@ -21,21 +22,12 @@ const CardsContainer = styled.div`
   flex-flow: row wrap;
 `
 
-const about = ({posts, doc, menu, lang, preview, switchTheme, theme}) => {
+const about = ({posts, doc, menu, lang, preview, switchTheme, theme, routeString}) => {
   
   return (
     <Layout switchTheme={switchTheme} theme={theme} menuLinks={menu.data.menu_links} altLangs={doc.alternate_languages} lang={lang}>
       <motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}>
-        <Head>
-          <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-          <title>Carlos Henriquez - Blog</title>
-          <meta property="og:title" content={`Henriquez.dev - Blog`} key="title" />
-          <meta property="og:description" content={`Blog`} key="description" />
-          <meta name="keywords" content="HTML, CSS, JavaScript, Web development, React, NextJS, Jamstack, Headless CMS" />
-          <meta name="author" content="Carlos Henriquez" />
-          <meta name="description" content={`Henriquez.dev Blog`} />
-          <link rel="icon" href="/favicon.png" type="image/png"/>
-        </Head>
+        <SeoMetaTag lang={lang} routeString={routeString} seoTitle={doc.data.title[0].text} seoDescription={doc.data.description[0].text} seoOgImage={doc.data.og_image.url}/>
         <HeaderSection fullImg={doc.data.header_image_full.url} headerText={doc.data.title[0].text} headerDescription={doc.data.description[0].text}/>
         <ContentSection>
           <CardsContainer>
