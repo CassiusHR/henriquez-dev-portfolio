@@ -30,6 +30,7 @@ const NavBar = styled.nav`
     justify-content:center;
     align-items:center;
     height:60px;
+    overflow:hidden;
     button {
       -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
       background:none;
