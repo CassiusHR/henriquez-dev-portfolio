@@ -108,6 +108,7 @@ const IndexBox = styled.div`
         animation-iteration-count: 1;
         transform:translateX(20%);
         opacity:0;
+        cursor:pointer;
         &.icon-2{
           animation-delay:3s;
         }
@@ -176,15 +177,21 @@ const IndexHeader = () => {
         <IndexBox className="limit">
           <h1 className="right-content">BREWED IN CHILE<br/>MOVED TO THE STATES<br/>AVAILABLE WORLDWIDE</h1>
           <div className="links-container">
-            <div className="icon">
-              <Linkedin/>
-            </div>
-            <div className="icon icon-2">
-              <Instagram/>
-            </div>
-            <div className="icon icon-3">
-              <Github/>
-            </div>
+            <a href='https://www.linkedin.com/in/carlos-henriquez-montenegro/' alt='linkedin-profile' target='_blank'>
+              <div className="icon">
+                <Linkedin/>
+              </div>
+            </a>
+            <a href='https://www.instagram.com/henriquez.dev/' alt='instagram-profile' target='_blank'>
+              <div className="icon icon-2">
+                <Instagram/>
+              </div>
+            </a>
+            <a href='https://github.com/CassiusHR' alt='instagram-profile' target='_blank'>
+              <div className="icon icon-3">
+                <Github/>
+              </div>
+            </a>
           </div>
         </IndexBox>
       </div>

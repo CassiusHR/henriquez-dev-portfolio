@@ -1,5 +1,4 @@
 module.exports = {
-  webpack5: false,
   modules: true,
   images: {
     domains: ['images.prismic.io'],
