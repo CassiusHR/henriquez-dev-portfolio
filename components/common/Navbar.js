@@ -187,7 +187,7 @@ const Navbar = ({ theme, switchTheme, menuLinks, altLangs, currentLang }) => {
           {menuLinks && menuLinks.map((link,i)=>(
             <li key={`menulink-${i}`} className={(`/${currentLang}${router.pathname}`) == hrefResolver(link.link) ? 'selected' : ''}>
               <Link href={hrefResolver(link.link)} scroll={false} passHref>
-                <a>{link.label[0].text.toUpperCase()}</a>
+                {link.label[0].text.toUpperCase()}
               </Link>
             </li>
           ))}
@@ -200,7 +200,7 @@ const Navbar = ({ theme, switchTheme, menuLinks, altLangs, currentLang }) => {
                 <li key={`menulink-${i}`} className={(`/${currentLang}${router.pathname}`) == hrefResolver(link.link) ? 'selected' : ''}>
                   <Link href={hrefResolver(link.link)} scroll={false} passHref>
                     <div>
-                      <a onClick={() => {closeMenu()}}>{link.label[0].text}</a>
+                      <p onClick={() => {closeMenu()}}>{link.label[0].text}</p>
                     </div>
                   </Link>
                 </li>

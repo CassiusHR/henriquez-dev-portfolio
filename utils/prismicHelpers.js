@@ -15,7 +15,7 @@ export const customLink = (type, element, content) => (
     key={element.data.id}
     href={hrefResolver(element.data)}
   >
-    <a>{content}</a>
+    {content}
   </Link>
 );
 

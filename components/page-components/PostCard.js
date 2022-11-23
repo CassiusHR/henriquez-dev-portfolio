@@ -144,7 +144,7 @@ const PostCard = ({ post,index }) => {
       <CardContainer blurred={post.data.feature_image_small.url || post.data.feature_image.url} className={index === 0 ? 'first' : ''}>
           <div className="text-content">
           <Link href={hrefResolver(post)} scroll={false} passHref>
-            <a>{post.data.title[0].text}</a>
+            {post.data.title[0].text}
           </Link>
             <div className="date-container">
               <img src="/post-avatar.jpg"/>

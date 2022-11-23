@@ -1,5 +1,4 @@
 module.exports = {
-  modules: true,
   images: {
     domains: ['images.prismic.io'],
   },
